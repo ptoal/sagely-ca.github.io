@@ -7,7 +7,6 @@
 
 # Site settings
 title: Sagely Go...
-email: sage905@takeflight.ca
 description: > # this means to ignore newlines until "baseurl:"
   Words of wisdom, or not; Thoughts to mull about.
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -17,3 +16,6 @@ github_username:  sage905
 
 # Build settings
 markdown: kramdown
+safe: true
+timezone: America/Toronto
+
