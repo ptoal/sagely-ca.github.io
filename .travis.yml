@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+- 2.2.0
+sudo: false
+script: "./build.sh"
+branches:
+  only:
+    - source # only take into account `source' branch
+env:
+  global:
+  - secure: JHmAmqXbzMHKRYKELgYiwiEPYrhPm9e54ia9dOIrnVMswfC/GbgQlS5Ym80WLaqcoWcyRpn/1u3scYwYnZ5FauXmk+/0FkKNOla/1BEXuMqHONP3hhN1XWknAHIRsWwSYEAEIIsC1CjFYoxPJhnmGkf2tAChyQp6mz4EB8FDFxWtvIeHlMkqMiN5gGIWFwhMgSyfXlc96fibu9PNq/W6Lusvu0uJX3vcROvQNnwbukjapJqGeaBFFOZ59l9kjZmsnHRAdiMTWtYrtB7BscfUBOHbfu/L7bA6Lc0SIcWARbuzovT71TcFeTs6k9gHFXX/w7JD4xzKusJsC3R+mCeDu2URMRRXKYpU7FtKKozXFbveP0GfZeT2MdkGLV9skQ/yPuGvNGzZarPJKIAFnYmgadGojJKdAnRc7FUITFJh+tK27+arsqwj+am7SR9jNn6L3Sr+0Dw06ZMSRlbgB5eQN6W5CpEbcDxxpWlNTGh763sHlBMEgkZZQLcKXyNNykQsBDG5UHGR3rpQYM1Y37ZFjDB3b95+h2oUYetuUNm+5VVyT02eIyLjQhMXN8lUPJRZvTRNyieLhfeZY4uMvgsFkb5C10qWNB9MX7weTas8yAuBppQFezTcAbrASesd6B4RQR0+9G63uVRf1JayLqy/hjoPWaQvCOiWSs1flCyoogU=
+before_script:
+- git config --global user.email "builds@travis-ci.com"
+- git config --global user.name "Travis CI"
