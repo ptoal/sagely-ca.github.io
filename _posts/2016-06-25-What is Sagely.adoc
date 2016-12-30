@@ -1,0 +1,15 @@
+= What is Sagely?
+:page-layout: post
+:status: published
+:type: post
+:published: true
+:comments: true
+:category: misc
+
+== Welcome
+image:/assets/sage.png[Avatar, 75, 75 title="Avatar"] What you'll find here is a collection of posts about Coding, Gaming, and perhaps some general Philosophy.
+
+This is a place for me to put my general musing, some of which may be useful to others, I hope. :)
+
+I can be contacted via Twitter, as well as on Discord.app, where I am often found in the https://discord.gg/0yT9UMxwlebCcR5t[Pwn9] server as Sage905.
+
