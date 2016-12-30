@@ -6,5 +6,4 @@ gem 'rake-jekyll', '~> 1.1.0'
 
 group :jekyll_plugins do
   gem 'jekyll-asciidoc', '~> 2.0.1'
-  gem 'github-pages'
 end
