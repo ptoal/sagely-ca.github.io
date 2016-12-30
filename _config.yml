@@ -21,6 +21,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - Rakefile
+  - vendor
 
 asciidoc: {}
 asciidoctor:
@@ -30,7 +31,5 @@ asciidoctor:
     - idseparator=_
     - source-highlighter=coderay
     - icons=font
-
-#markdown: kramdown
 timezone: America/Toronto
 
