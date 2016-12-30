@@ -1,0 +1,8 @@
+# Sagely.ca
+:desc: Sagely go...
+:permalink: /
+:page-include_cta_btn: false
+:page-layout: home
+:page-bodyclass: alt-home
+:page-post_count: 8
+:page-feature_image: feature-laptop

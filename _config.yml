@@ -13,6 +13,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://sagely.ca" # the base hostname & protocol for your site
 twitter_username: sage905
 github_username:  sage905
+permalink: :title
 
 # Build settings
 exclude:
@@ -33,3 +34,13 @@ asciidoctor:
     - icons=font
 timezone: America/Toronto
 
+#Theme config
+nav_list:
+  Home : ['Home', '/', 'fa-home']
+  About : ['About', '/about', 'fa-anchor']
+  Contact : ['Contact', '/contact', 'fa-plane']
+  Author : ['Author', '/author/sage905', 'fa-user']
+single_footer: '<p>&copy; 2017 <a href="/">latest posts</a></p>'
+footer_links:
+    About: ['About', '/about']
+    Writer: ['Sagely', '/about']
