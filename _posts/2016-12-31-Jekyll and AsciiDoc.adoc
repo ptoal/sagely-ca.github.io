@@ -1,0 +1,111 @@
+= Jekyll and Asciidoc
+:page-layout: post
+:page-categories: [coding]
+:page-square_related: recommend-laptop
+:page-feature_image: feature-puzzle
+:page-read_time: 5
+:page-desc: Using jekyll and Asciidoc with Github Organization Pages for a blog
+
+== Motivation
+
+I wished to create a blog that would be easy enough to maintain that I would
+ actually take the time to contribute to it.  In order for that to happen,
+ I decided that it would require the following:
+
+   - Static page generation (no backend DB's, no CMS, etc)
+   - Editable from a plain text editor anywhere. (Content is King)
+   - Checked into version control
+   - Easily published automatically after a commit.
+
+This has led me, after much musing, to a combination of Jekyll, Asciidoc, and
+GitHub Pages.  The blog you see before you today is a result of those choices.
+
+== Github Pages
+
+My first decision was that I would use https://pages.github.com/[Github Pages].
+The pro's for this choice were:
+
+ - Free
+ - Static
+ - Long-lasting
+ - Extremely low maintenance
+ - I already have a Github account
+
+I have, over the years, had web sites which were maintained with Django, Wordpress,
+and other back-ends, but every one of them falls behind in security patches,
+plugin versions, etc.  I wanted something that I could leave for months at a time,
+if necessary, and then just pick up my text editor, and publish, without having
+to worry about managing any code.  Github Pages is always on, and I don't need
+to manage anything except DNS records, and my Git repository.
+
+Nice.
+
+== Git
+
+https://git-scm.com/[Git] is my VCS of choice, and has been for almost a decade.
+Pretty much a no-brainer.
+
+== Jekyll
+
+This decision was borne out of the Github Pages decision.  https://jekyllrb.com/[Jekyll]
+is a static site generator written in Ruby, and supported by Github Pages natively.
+
+Unfortunately, my next decision, to use Asciidoc, required that I not use the built-in
+integration.  Not to worry, though.  I found a workaround that still meets my goal
+to have automatic publishing based on a `git push`, without requiring any of my
+own infrastructure.
+
+== Asciidoc
+
+This is where I stray from the beaten path.  Many people like to use Markdown
+(or one of it's patchwork offspring).  I have nothing against Markdown, execpt
+for the fact that there really isn't _a_ markdown. http://commonmark.org/[CommonMark]
+is promising, but not widely supported.  Also, it doesn't have nearly the power
+of Asciidoc for other tasks, like writing comprehensive technical documentation,
+one of my other use-cases.  One of the drawbacks to learning a text-based markup
+language like Markdown, ReStructured Text, and others is that each dialect is
+similar enough to be stored in the same area of the brain, but has enough
+differences that they often get muddled up.  So you end up using a Markdown idiom
+when writing ReST, etc.
+
+By deciding on one language to rule them all, I am forsaking all others (not
+really, since other people still use them, and I don't live in my own world).
+At least, I am hopeful that by focusing on Asciidoc as my primary dialect, I will
+not make as many mistakes when I am using it.
+
+== Travis
+
+As I chose Asciidoc, I could not use the Github integration for Jekyll, as they
+don't support the https://github.com/asciidoctor/jekyll-asciidoc[Asciidoc plugin].
+I'm not sure why, and there are a number of
+people who, I am sure, have asked them to reconsider, but for now, that means
+that I need an external way of building my site.  Fortunately, there are some
+great tutorials on how to use https://travis-ci.org[Travis] to execute builds
+that are triggered by Github Hooks.  So that is the method I've decided to use.
+
+== Putting it all together
+
+What the workflow looks like when all this is glued together is:
+
+Clone Github Repo -> Edit in IntelliJ IDEA (or whatever I have handy) ->
+Push to Github -> Hook fired to Travis -> Travis executes the Jekyll build and
+pushes to the Github master repo -> Profit.
+
+== Conclusion
+
+I will be documenting this process in more detail, for those who would like to
+replicate my setup.  For now, however, there are a great many tutorials online
+that can talk about the individual steps.
+
+Also, I didn't discuss anything about themes or artwork.  That's probably an
+entire topic on its own.
+
+Until next time...
+
+-Sage
+
+
+
+
+
+

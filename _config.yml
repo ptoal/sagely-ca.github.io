@@ -44,3 +44,16 @@ single_footer: '<p>&copy; 2017 <a href="/">latest posts</a></p>'
 footer_links:
     About: ['About', '/about']
     Writer: ['Sagely', '/about']
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      author_name: Sage905
+      author_url: author/Sage905
+      author_avatar: sage
+      show_avatar: true
+      show_related_posts: true
+      feature_image: feature-sailing
+      square_related: recommend-wolf

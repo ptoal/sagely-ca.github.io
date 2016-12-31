@@ -1,14 +1,24 @@
 = About
-:layout: page
+:page-feature_image: feature-thought
+:page-layout:
+:page-permalink: /about/
 
-== permalink: /about/
+Sagely is the way I try to approach challenges in life.  That's not to say that
+I consider myself particularly wise, but that I aspire to approach things the way
+I imagine someone who is wise would do.
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at http://jekyllrb.com/[jekyllrb.com]
+What you'll find here is a collection of posts about Coding, Gaming, and perhaps
+some general Philosophy.
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jglovier" %} /
-https://github.com/jglovier/jekyll-new[jekyll-new]
+This is a place for me to put my general musing, some of which may be useful to
+others, I hope. Occasionally, there may also be contributions from guest authors.
 
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-https://github.com/jekyll/jekyll[jekyll]
+You may find something of interest here, you may find something that inspires you
+to be righteously indignant.  That's cool.  I'm happy to be your scapegoat.  I
+used to do it professionally.
+
+I can be contacted via Twitter, as well as on Discord.app, where I am often
+found in the https://discord.gg/0yT9UMxwlebCcR5t[Pwn9] server as Sage905.
+
+-- Sage
+

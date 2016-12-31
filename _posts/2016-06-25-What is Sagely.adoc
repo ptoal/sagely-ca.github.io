@@ -1,15 +1,17 @@
 = What is Sagely?
 :page-layout: post
-:status: published
-:type: post
-:published: true
-:comments: true
-:category: misc
+:page-categories: [life, ]
+:page-read_time: 1
 
-== Welcome
-image:/assets/sage.png[Avatar, 75, 75 title="Avatar"] What you'll find here is a collection of posts about Coding, Gaming, and perhaps some general Philosophy.
+Sagely is the way I try to approach challenges in life.  That's not to say that
+I consider myself particularly wise, but that I aspire to approach things the way
+I imagine someone who is wise would do.
 
-This is a place for me to put my general musing, some of which may be useful to others, I hope. :)
+What you'll find here is a collection of posts about Coding, Gaming, and perhaps
+some general Philosophy.
 
-I can be contacted via Twitter, as well as on Discord.app, where I am often found in the https://discord.gg/0yT9UMxwlebCcR5t[Pwn9] server as Sage905.
+This is a place for me to put my general musing, some of which may be useful to
+others, I hope. Occasionally, there may also be contributions from guest authors.
 
+I can be contacted via Twitter, as well as on Discord.app, where I am often
+found in the https://discord.gg/0yT9UMxwlebCcR5t[Pwn9] server as Sage905.

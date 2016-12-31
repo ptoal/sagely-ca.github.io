@@ -1,8 +1,7 @@
 # Sagely.ca
-:desc: Sagely go...
+:page-desc: Sagely go...
 :permalink: /
 :page-include_cta_btn: false
-:page-layout: home
-:page-bodyclass: alt-home
+:page-layout: home-alt
 :page-post_count: 8
-:page-feature_image: feature-laptop
+:page-feature_image: feature-books

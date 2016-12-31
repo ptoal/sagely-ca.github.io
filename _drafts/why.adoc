@@ -1,0 +1,5 @@
+= Why?
+:page-layout: post
+:page-category: motivation
+
+I don't know.  Do you?
