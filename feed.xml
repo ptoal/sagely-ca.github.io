@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sagely Go...</title>
+    <description>Words of wisdom, or not; Thoughts to mull about.
+</description>
+    <link>http://sagely.ca/</link>
+    <atom:link href="http://sagely.ca/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 30 Dec 2016 19:01:25 -0500</pubDate>
+    <lastBuildDate>Fri, 30 Dec 2016 19:01:25 -0500</lastBuildDate>
+    <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>What is Sagely?</title>
+        <description>&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;welcome&quot;&gt;Welcome&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/sage.png&quot; alt=&quot;Avatar&quot; width=&quot;75&quot; height=&quot;75 title=&quot;Avatar&quot;&quot;&gt;&lt;/span&gt; What you&amp;#8217;ll find here is a collection of posts about Coding, Gaming, and perhaps some general Philosophy.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This is a place for me to put my general musing, some of which may be useful to others, I hope. :)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I can be contacted via Twitter, as well as on Discord.app, where I am often found in the &lt;a href=&quot;https://discord.gg/0yT9UMxwlebCcR5t&quot;&gt;Pwn9&lt;/a&gt; server as Sage905.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        <pubDate>Sat, 25 Jun 2016 00:00:00 -0400</pubDate>
+        <link>http://sagely.ca/What-is-Sagely</link>
+        <guid isPermaLink="true">http://sagely.ca/What-is-Sagely</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
