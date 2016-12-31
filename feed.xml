@@ -6,30 +6,209 @@
 </description>
     <link>http://sagely.ca/</link>
     <atom:link href="http://sagely.ca/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 30 Dec 2016 19:01:25 -0500</pubDate>
-    <lastBuildDate>Fri, 30 Dec 2016 19:01:25 -0500</lastBuildDate>
+    <pubDate>Sat, 31 Dec 2016 13:29:34 -0500</pubDate>
+    <lastBuildDate>Sat, 31 Dec 2016 13:29:34 -0500</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
-        <title>What is Sagely?</title>
+        <title>Jekyll and Asciidoc</title>
         <description>&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;welcome&quot;&gt;Welcome&lt;/h2&gt;
+&lt;h2 id=&quot;motivation&quot;&gt;Motivation&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;/assets/sage.png&quot; alt=&quot;Avatar&quot; width=&quot;75&quot; height=&quot;75 title=&quot;Avatar&quot;&quot;&gt;&lt;/span&gt; What you&amp;#8217;ll find here is a collection of posts about Coding, Gaming, and perhaps some general Philosophy.&lt;/p&gt;
+&lt;p&gt;I wished to create a blog that would be easy enough to maintain that I would
+ actually take the time to contribute to it.  In order for that to happen,
+ I decided that it would require the following:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Static page generation (no backend DB&amp;#8217;s, no CMS, etc)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Editable from a plain text editor anywhere. (Content is King)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Checked into version control&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Easily published automatically after a commit.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;This is a place for me to put my general musing, some of which may be useful to others, I hope. :)&lt;/p&gt;
+&lt;p&gt;This has led me, after much musing, to a combination of Jekyll, Asciidoc, and
+GitHub Pages.  The blog you see before you today is a result of those choices.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;github_pages&quot;&gt;Github Pages&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;My first decision was that I would use &lt;a href=&quot;https://pages.github.com/&quot;&gt;Github Pages&lt;/a&gt;.
+The pro&amp;#8217;s for this choice were:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Free&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Static&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Long-lasting&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Extremely low maintenance&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;I already have a Github account&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;I can be contacted via Twitter, as well as on Discord.app, where I am often found in the &lt;a href=&quot;https://discord.gg/0yT9UMxwlebCcR5t&quot;&gt;Pwn9&lt;/a&gt; server as Sage905.&lt;/p&gt;
+&lt;p&gt;I have, over the years, had web sites which were maintained with Django, Wordpress,
+and other back-ends, but every one of them falls behind in security patches,
+plugin versions, etc.  I wanted something that I could leave for months at a time,
+if necessary, and then just pick up my text editor, and publish, without having
+to worry about managing any code.  Github Pages is always on, and I don&amp;#8217;t need
+to manage anything except DNS records, and my Git repository.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Nice.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;git&quot;&gt;Git&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://git-scm.com/&quot;&gt;Git&lt;/a&gt; is my VCS of choice, and has been for almost a decade.
+Pretty much a no-brainer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;jekyll&quot;&gt;Jekyll&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This decision was borne out of the Github Pages decision.  &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;
+is a static site generator written in Ruby, and supported by Github Pages natively.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Unfortunately, my next decision, to use Asciidoc, required that I not use the built-in
+integration.  Not to worry, though.  I found a workaround that still meets my goal
+to have automatic publishing based on a &lt;code&gt;git push&lt;/code&gt;, without requiring any of my
+own infrastructure.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;asciidoc&quot;&gt;Asciidoc&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This is where I stray from the beaten path.  Many people like to use Markdown
+(or one of it&amp;#8217;s patchwork offspring).  I have nothing against Markdown, execpt
+for the fact that there really isn&amp;#8217;t &lt;em&gt;a&lt;/em&gt; markdown. &lt;a href=&quot;http://commonmark.org/&quot;&gt;CommonMark&lt;/a&gt;
+is promising, but not widely supported.  Also, it doesn&amp;#8217;t have nearly the power
+of Asciidoc for other tasks, like writing comprehensive technical documentation,
+one of my other use-cases.  One of the drawbacks to learning a text-based markup
+language like Markdown, ReStructured Text, and others is that each dialect is
+similar enough to be stored in the same area of the brain, but has enough
+differences that they often get muddled up.  So you end up using a Markdown idiom
+when writing ReST, etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;By deciding on one language to rule them all, I am forsaking all others (not
+really, since other people still use them, and I don&amp;#8217;t live in my own world).
+At least, I am hopeful that by focusing on Asciidoc as my primary dialect, I will
+not make as many mistakes when I am using it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;travis&quot;&gt;Travis&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As I chose Asciidoc, I could not use the Github integration for Jekyll, as they
+don&amp;#8217;t support the &lt;a href=&quot;https://github.com/asciidoctor/jekyll-asciidoc&quot;&gt;Asciidoc plugin&lt;/a&gt;.
+I&amp;#8217;m not sure why, and there are a number of
+people who, I am sure, have asked them to reconsider, but for now, that means
+that I need an external way of building my site.  Fortunately, there are some
+great tutorials on how to use &lt;a href=&quot;https://travis-ci.org&quot;&gt;Travis&lt;/a&gt; to execute builds
+that are triggered by Github Hooks.  So that is the method I&amp;#8217;ve decided to use.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;putting_it_all_together&quot;&gt;Putting it all together&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;What the workflow looks like when all this is glued together is:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Clone Github Repo &amp;#8594; Edit in IntelliJ IDEA (or whatever I have handy) &amp;#8594;
+Push to Github &amp;#8594; Hook fired to Travis &amp;#8594; Travis executes the Jekyll build and
+pushes to the Github master repo &amp;#8594; Profit.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I will be documenting this process in more detail, for those who would like to
+replicate my setup.  For now, however, there are a great many tutorials online
+that can talk about the individual steps.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Also, I didn&amp;#8217;t discuss anything about themes or artwork.  That&amp;#8217;s probably an
+entire topic on its own.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Until next time&amp;#8230;&amp;#8203;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;-Sage&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        <pubDate>Sat, 31 Dec 2016 00:00:00 -0500</pubDate>
+        <link>http://sagely.ca/Jekyll-and-AsciiDoc</link>
+        <guid isPermaLink="true">http://sagely.ca/Jekyll-and-AsciiDoc</guid>
+        
+        
+        <category>coding</category>
+        
+      </item>
+    
+      <item>
+        <title>What is Sagely?</title>
+        <description>&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Sagely is the way I try to approach challenges in life.  That&amp;#8217;s not to say that
+I consider myself particularly wise, but that I aspire to approach things the way
+I imagine someone who is wise would do.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;What you&amp;#8217;ll find here is a collection of posts about Coding, Gaming, and perhaps
+some general Philosophy.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This is a place for me to put my general musing, some of which may be useful to
+others, I hope. Occasionally, there may also be contributions from guest authors.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I can be contacted via Twitter, as well as on Discord.app, where I am often
+found in the &lt;a href=&quot;https://discord.gg/0yT9UMxwlebCcR5t&quot;&gt;Pwn9&lt;/a&gt; server as Sage905.&lt;/p&gt;
 &lt;/div&gt;</description>
         <pubDate>Sat, 25 Jun 2016 00:00:00 -0400</pubDate>
         <link>http://sagely.ca/What-is-Sagely</link>
         <guid isPermaLink="true">http://sagely.ca/What-is-Sagely</guid>
         
+        
+        <category>life</category>
         
       </item>
     
