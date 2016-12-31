@@ -10,7 +10,7 @@ if [ $TRAVIS_PULL_REQUEST == "true" ]; then
     set -e
 
     # build site with jekyll, by default to `_site' folder
-    jekyll build
+    bundle exec jekyll build
 
     # cleanup
     rm -rf ../sagely-ca.github.io.master
