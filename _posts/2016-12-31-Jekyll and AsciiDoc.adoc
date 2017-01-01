@@ -62,11 +62,12 @@ This is where I stray from the beaten path.  Many people like to use Markdown
 (or one of it's patchwork offspring).  I have nothing against Markdown, execpt
 for the fact that there really isn't _a_ markdown. http://commonmark.org/[CommonMark]
 is promising, but not widely supported.  Also, it doesn't have nearly the power
-of Asciidoc for other tasks, like writing comprehensive technical documentation,
-one of my other use-cases.  One of the drawbacks to learning a text-based markup
-language like Markdown, ReStructured Text, and others is that each dialect is
-similar enough to be stored in the same area of the brain, but has enough
-differences that they often get muddled up.  So you end up using a Markdown idiom
+of http://asciidoctor.org/docs/what-is-asciidoc/[Asciidoc] for other tasks,
+like writing comprehensive technical documentation, one of my other use-cases.
+One of the drawbacks to learning a text-based markup language like Markdown,
+ReStructured Text, and others is that each dialect is similar enough to be
+stored in the same area of the brain, but has enough differences that they often
+get muddled up (in my head, anyway). So you end up using a Markdown idiom
 when writing ReST, etc.
 
 By deciding on one language to rule them all, I am forsaking all others (not
@@ -82,7 +83,9 @@ I'm not sure why, and there are a number of
 people who, I am sure, have asked them to reconsider, but for now, that means
 that I need an external way of building my site.  Fortunately, there are some
 great tutorials on how to use https://travis-ci.org[Travis] to execute builds
-that are triggered by Github Hooks.  So that is the method I've decided to use.
+that are triggered by Github Hooks.  The one I followed is
+https://eshepelyuk.github.io/2014/10/28/automate-github-pages-travisci.html[this one]
+by Evgeny Shepelyuk.
 
 == Putting it all together
 
