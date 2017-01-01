@@ -50,11 +50,11 @@ defaults:
     scope:
       path: ""
     values:
-      comments: true
       author_name: Sage905
       author_url: author/Sage905
       author_avatar: sage
       show_avatar: true
       show_related_posts: true
+      comments: true
       feature_image: feature-sailing
       square_related: recommend-wolf
