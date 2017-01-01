@@ -16,7 +16,7 @@ if [ $TRAVIS_PULL_REQUEST == "true" ]; then
     rm -rf ../sagely-ca.github.io.master
 
     #clone `master' branch of the repository using encrypted GH_TOKEN for authentification
-    git clone https://${GH_TOKEN}@github.com/Sagely-ca/sagely-ca.github.io.git ../sagely-ca.github.io.master
+    git clone -b master --single-branch https://${GH_TOKEN}@github.com/Sagely-ca/sagely-ca.github.io.git ../sagely-ca.github.io.master
 
     # copy generated HTML site to `master' branch
     cp -R _site/* ../sagely-ca.github.io.master

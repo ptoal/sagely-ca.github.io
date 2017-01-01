@@ -6,8 +6,8 @@
 </description>
     <link>http://sagely.ca/</link>
     <atom:link href="http://sagely.ca/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 01 Jan 2017 13:55:13 -0500</pubDate>
-    <lastBuildDate>Sun, 01 Jan 2017 13:55:13 -0500</lastBuildDate>
+    <pubDate>Sun, 01 Jan 2017 14:49:40 -0500</pubDate>
+    <lastBuildDate>Sun, 01 Jan 2017 14:49:40 -0500</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -178,6 +178,16 @@ entire topic on its own.&lt;/p&gt;
         <pubDate>Sat, 31 Dec 2016 00:00:00 -0500</pubDate>
         <link>http://sagely.ca/Jekyll-and-AsciiDoc</link>
         <guid isPermaLink="true">http://sagely.ca/Jekyll-and-AsciiDoc</guid>
+        
+        <category>jekyll</category>
+        
+        <category>asciidoc</category>
+        
+        <category>github</category>
+        
+        <category>travis</category>
+        
+        <category>blog</category>
         
         
         <category>coding</category>
