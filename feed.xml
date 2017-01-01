@@ -6,8 +6,8 @@
 </description>
     <link>http://sagely.ca/</link>
     <atom:link href="http://sagely.ca/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 01 Jan 2017 15:53:47 -0500</pubDate>
-    <lastBuildDate>Sun, 01 Jan 2017 15:53:47 -0500</lastBuildDate>
+    <pubDate>Sun, 01 Jan 2017 16:03:33 -0500</pubDate>
+    <lastBuildDate>Sun, 01 Jan 2017 16:03:33 -0500</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -113,11 +113,12 @@ own infrastructure.&lt;/p&gt;
 (or one of it&amp;#8217;s patchwork offspring).  I have nothing against Markdown, execpt
 for the fact that there really isn&amp;#8217;t &lt;em&gt;a&lt;/em&gt; markdown. &lt;a href=&quot;http://commonmark.org/&quot;&gt;CommonMark&lt;/a&gt;
 is promising, but not widely supported.  Also, it doesn&amp;#8217;t have nearly the power
-of Asciidoc for other tasks, like writing comprehensive technical documentation,
-one of my other use-cases.  One of the drawbacks to learning a text-based markup
-language like Markdown, ReStructured Text, and others is that each dialect is
-similar enough to be stored in the same area of the brain, but has enough
-differences that they often get muddled up.  So you end up using a Markdown idiom
+of &lt;a href=&quot;http://asciidoctor.org/docs/what-is-asciidoc/&quot;&gt;Asciidoc&lt;/a&gt; for other tasks,
+like writing comprehensive technical documentation, one of my other use-cases.
+One of the drawbacks to learning a text-based markup language like Markdown,
+ReStructured Text, and others is that each dialect is similar enough to be
+stored in the same area of the brain, but has enough differences that they often
+get muddled up (in my head, anyway). So you end up using a Markdown idiom
 when writing ReST, etc.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -138,7 +139,9 @@ I&amp;#8217;m not sure why, and there are a number of
 people who, I am sure, have asked them to reconsider, but for now, that means
 that I need an external way of building my site.  Fortunately, there are some
 great tutorials on how to use &lt;a href=&quot;https://travis-ci.org&quot;&gt;Travis&lt;/a&gt; to execute builds
-that are triggered by Github Hooks.  So that is the method I&amp;#8217;ve decided to use.&lt;/p&gt;
+that are triggered by Github Hooks.  The one I followed is
+&lt;a href=&quot;https://eshepelyuk.github.io/2014/10/28/automate-github-pages-travisci.html&quot;&gt;this one&lt;/a&gt;
+by Evgeny Shepelyuk.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
