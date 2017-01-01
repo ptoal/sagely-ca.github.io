@@ -24,20 +24,20 @@ the telephone area code he lived in.
 
 Sage has been involved with Internet technologies in one form or another since
 the mid 90's.  During the early part of the 90's, he was employed by a local
-computer shop called "Rentronics", where he met someone who was a student at
+computer shop called "Rentronics", where he met a colleague who was a student at
 McMaster University.  This fellow shared his McMaster user account with Sage,
 for which he will be forever grateful as this was his door to the Internet,
 which would forever change the course of Sage's life.
 
-The Internet allowed Sage to learn the basics about Unix, and shortly thereafter
+The Internet allowed Sage to learn the basics about Unix and shortly thereafter
 he discovered Linux.  Countless hours were spent installing, compiling, formatting
-starting over again.  All the while, new skills were being developed that would
-open even more doors.
+and starting over again.  All the while, new skills were being developed that
+would open even more doors in the future.
 
 The Hamilton-Wentworth Freenet was a project which made Internet access and
 community information freely available to people from all walks of life.
-As a volunteer and later staff member, he helped design and operate the service,
-and was able to work with many very bright people, who freely shared their
+As a volunteer and later a staff member, he helped design, build and operate the
+service, and was able to work with many very bright people who freely shared their
 knowledge with him.  This gave him connections to a couple of people who opened
 the next door in his career.
 
@@ -45,12 +45,12 @@ At the dawn of the Broadband Access era, he was fortunate to be hired by a
 forward-looking cable company when Cable Modem technology was in infancy.
 Over the course of 5 years, Sage was the Server and Network Administrator,
 responsible for everything from Server and Router installation and operation to
-Software development, Tier 3 support, and on-site installer.  After 5 years,
+software development, Tier 3 support, and on-site installer.  After 5 years,
 the company attracted the attentions of a wealthy suitor, and the cable assets
 were sold off.  It was time to look for a new path.
 
 Thanks to connections made at the cable company, Sage was able to get an
-interview (well, five, actually) at Cisco, the Juggernaut of the Internet at
+interview (well, five, actually) at Cisco, the juggernaut of the Internet at
 that time.  This new opportunity turned into a 16 year career of helping
 customers design, deploy and operate massive networks to provide Internet
 access to Canadians.  He worked on a countless number of amazing projects involving
