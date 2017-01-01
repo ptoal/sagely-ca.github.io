@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # only proceed script when started not by pull request (PR)
-if [ $TRAVIS_PULL_REQUEST == "true" ]; then
+if [ ${TRAVIS_PULL_REQUEST} == "true" ]; then
   echo "this is PR, exiting"
     exit 0
     fi
@@ -27,5 +27,5 @@ if [ $TRAVIS_PULL_REQUEST == "true" ]; then
     git config user.email "sage905@takeflight.ca"
     git config user.name "Sage Wiseman"
     git add -A .
-    git commit -a -m "Travis #$TRAVIS_BUILD_NUMBER"
+    git commit -a -m "Travis #${TRAVIS_BUILD_NUMBER}"
     git push --quiet origin master > /dev/null 2>&1

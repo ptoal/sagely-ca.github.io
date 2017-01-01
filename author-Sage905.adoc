@@ -9,18 +9,15 @@
 
 ## Sage905
 
-Sage905 is the online moniker used by a Canadian with a given name of Patrick
-and whose surname is Toal.
-
 Considered wise by some, and a wise-ass by others, he was given the online
 handle "The Sage" by a childhood friend, back in the days when BBS'
 footnote:[https://en.wikipedia.org/wiki/Bulletin_board_system[Wikipedia entry
 on BBS's] for those who are not digital dinosaurs]
 were all the rage.  This is a reference to a character in the most awesome of
 comic books, http://groo.com/[Groo the Wanderer] by the talented Sergio Aragonés.
-(Iron Man may be cooler, but Groo brings more laughs).  The "905" is an
+(Iron Man may be cooler, but Groo brings more laughs). "905" is an
 anachronism used by old BBS'ers to uniquely identify themselves.  It is merely
-the telephone area code he lived in.
+the telephone area code he lived in at the time.
 
 Sage has been involved with Internet technologies in one form or another since
 the mid 90's.  During the early part of the 90's, he was employed by a local

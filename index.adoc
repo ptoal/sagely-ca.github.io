@@ -1,7 +1,7 @@
 # Sagely.ca
-:page-desc: Sagely go...
+:page-desc: Thinking for a change.
 :permalink: /
 :page-include_cta_btn: false
 :page-layout: home-alt
 :page-post_count: 8
-:page-feature_image: feature-books
+:page-feature_image: feature-mind
