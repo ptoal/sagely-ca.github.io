@@ -4,7 +4,7 @@
 :page-square_related: recommend-wolf
 :page-author_avatar: sage
 :page-author_name: Sage905
-:page-permalink: /author/Sage905
+:page-permalink: /author/sage905
 :page-desc: A little bit about me...
 
 ## Sage905
