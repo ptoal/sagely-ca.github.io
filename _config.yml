@@ -50,6 +50,7 @@ defaults:
     scope:
       path: ""
     values:
+      comments: true
       author_name: Sage905
       author_url: author/Sage905
       author_avatar: sage
