@@ -2,7 +2,7 @@
 :page-layout: post
 :page-categories: [ coding ]
 :page-square_related: recommend-laptop
-:page-feature_image: feature-notebook
+:page-feature_image: feature-domore
 :page-read_time: 5
 :page-tags: [ ansible, automation, servers, python ]
 :page-excerpt: Decision-making process for using Ansible to manage a number of personal servers
@@ -47,5 +47,22 @@ require a centralized trusted server, and it had a lot fewer rules.  So all of
 the ad-hoc tasks I need to run are no problem.  In fact, Ansible encourages me
 to keep working in a very ad-hoc way, but allows me to add automation and process
 to the things I was already doing.
+
+== Setup
+
+I spent a lot of time just playing around with Ansible, and becoming familiar
+with it's philosophy, and function.  As you would expect, the https://docs.ansible.com/[Ansible Docs]
+are a great place to start.  I also heavily rely on the Ansible docsets in https://kapeli.com/dash[Dash.app]
+which are indispensable while learning the ins and outs.
+
+=== Installation
+
+I decided to use the development version, so I could get all the latest and greatest
+modules, etc.  Since nothing in my infrastructure is particularly critical, I figured
+I could handle any bugs without much issue. (Incidentally, I haven't found any, yet)
+
+... WIP ... To Be Continued...
+
+
 
 
