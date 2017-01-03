@@ -6,8 +6,8 @@
 </description>
     <link>http://sagely.ca/</link>
     <atom:link href="http://sagely.ca/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 03 Jan 2017 09:09:59 -0500</pubDate>
-    <lastBuildDate>Tue, 03 Jan 2017 09:09:59 -0500</lastBuildDate>
+    <pubDate>Tue, 03 Jan 2017 12:26:38 -0500</pubDate>
+    <lastBuildDate>Tue, 03 Jan 2017 12:26:38 -0500</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -61,6 +61,32 @@ require a centralized trusted server, and it had a lot fewer rules.  So all of
 the ad-hoc tasks I need to run are no problem.  In fact, Ansible encourages me
 to keep working in a very ad-hoc way, but allows me to add automation and process
 to the things I was already doing.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;setup&quot;&gt;Setup&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I spent a lot of time just playing around with Ansible, and becoming familiar
+with it&amp;#8217;s philosophy, and function.  As you would expect, the &lt;a href=&quot;https://docs.ansible.com/&quot;&gt;Ansible Docs&lt;/a&gt;
+are a great place to start.  I also heavily rely on the Ansible docsets in &lt;a href=&quot;https://kapeli.com/dash&quot;&gt;Dash.app&lt;/a&gt;
+which are indispensable while learning the ins and outs.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;installation&quot;&gt;Installation&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I decided to use the development version, so I could get all the latest and greatest
+modules, etc.  Since nothing in my infrastructure is particularly critical, I figured
+I could handle any bugs without much issue. (Incidentally, I haven&amp;#8217;t found any, yet)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;olist lowerroman&quot;&gt;
+&lt;ol class=&quot;lowerroman&quot; type=&quot;i&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;WIP &amp;#8230;&amp;#8203; To Be Continued&amp;#8230;&amp;#8203;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
