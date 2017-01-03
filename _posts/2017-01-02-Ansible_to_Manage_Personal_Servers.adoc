@@ -1,0 +1,51 @@
+= Ansible to Manage Personal Servers
+:page-layout: post
+:page-categories: [ coding ]
+:page-square_related: recommend-laptop
+:page-feature_image: feature-notebook
+:page-read_time: 5
+:page-tags: [ ansible, automation, servers, python ]
+:page-excerpt: Decision-making process for using Ansible to manage a number of personal servers
+
+== Background
+
+I have a lot of hobbies.  In the Venn diagram of my hobbies, the circle labelled
+"Nerdy" is disproportionately large.  What that means, for me, is that I have a
+large number of computing systems to manage.  I am a principal member of the
+http://pwn9.com[Pwn9.com] gaming community,  I have a home NAS that runs a number
+of services, such as my http://sagetv.com/[SageTV] installation, a
+http://dirvish.org[Dirvish] backup server (which backs up all the other servers)
+A https://ci.sagely.ca[Jenkins CI server], A number of web servers, Minecraft
+servers, and a handful of other things.
+
+Managing all of these as one-off's is cumbersome.  Sometimes, I don't touch some
+of these services for months, or even a year.  Others, I'm messing with daily.
+I needed a system to handle Administration of the services, without adding too
+much to my workload.  My other motivation was the fact that I wanted to become
+more familiar with Server Automation options, which have developed significantly
+since I was a Sysadmin in the 90's using http://cfengine.com[CFEngine].  (Kudos
+to the CFEngine folks for still going strong!)
+
+Initially, I spent a lot of time working with the Open Source version of
+https://puppet.com/[Puppet].  It looks like a great tool for large-scale
+deployments, but trying to run Puppet "masterless" just proved too difficult in
+my environment.  I wanted something that didn't require a server to be 24/7
+accessible.  I tried running the Puppet Master on my http://freenas.org/[FreeNAS]
+system in a jail, but I just kept running into obstacles.
+
+____
+He said we wouldn't get it. He said we wouldn't get the treasure we seek
+on account of our obstacles.
+
+-- Pete, O Brother, Where Art Thou?
+____
+
+I looked briefly at Chef, but it seemed more like Puppet, in terms of required
+infrastructure.  Ansible got my attention not just because it was written in
+Python, one of my preferred languages.  It was a lot lighter-weight, it didn't
+require a centralized trusted server, and it had a lot fewer rules.  So all of
+the ad-hoc tasks I need to run are no problem.  In fact, Ansible encourages me
+to keep working in a very ad-hoc way, but allows me to add automation and process
+to the things I was already doing.
+
+

@@ -2,6 +2,7 @@
 :page-layout: post
 :page-categories: [life, ]
 :page-read_time: 1
+:page-excerpt: An introduction to this blog.
 
 Sagely is the way I try to approach challenges in life.  That's not to say that
 I consider myself particularly wise, but that I aspire to approach things the way

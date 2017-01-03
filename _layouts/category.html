@@ -13,7 +13,7 @@ layout: with-sidebar
 
         <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
 
-        {{ post.excerpt | truncatewords: 28 }}
+            <p>{{ post.excerpt | truncatewords: 28 }}</p>
 
         <p class="meta">
             <a href="{{ post.author_url | prepend: site.baseurl }}">

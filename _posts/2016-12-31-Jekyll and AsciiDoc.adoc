@@ -5,7 +5,7 @@
 :page-feature_image: feature-puzzle
 :page-read_time: 5
 :page-tags: [jekyll, asciidoc, github, travis, blog ]
-:page-desc: Using jekyll and Asciidoc with Github Organization Pages for a blog
+:page-excerpt: Motivation for using Jekyll and Asciidoc with Github Organization Pages for a blog
 
 == Motivation
 
