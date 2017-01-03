@@ -6,9 +6,80 @@
 </description>
     <link>http://sagely.ca/</link>
     <atom:link href="http://sagely.ca/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 01 Jan 2017 16:19:14 -0500</pubDate>
-    <lastBuildDate>Sun, 01 Jan 2017 16:19:14 -0500</lastBuildDate>
+    <pubDate>Mon, 02 Jan 2017 23:02:14 -0500</pubDate>
+    <lastBuildDate>Mon, 02 Jan 2017 23:02:14 -0500</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>Ansible to Manage Personal Servers</title>
+        <description>&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I have a lot of hobbies.  In the Venn diagram of my hobbies, the circle labelled
+&quot;Nerdy&quot; is disproportionately large.  What that means, for me, is that I have a
+large number of computing systems to manage.  I am a principal member of the
+&lt;a href=&quot;http://pwn9.com&quot;&gt;Pwn9.com&lt;/a&gt; gaming community,  I have a home NAS that runs a number
+of services, such as my &lt;a href=&quot;http://sagetv.com/&quot;&gt;SageTV&lt;/a&gt; installation, a
+&lt;a href=&quot;http://dirvish.org&quot;&gt;Dirvish&lt;/a&gt; backup server (which backs up all the other servers)
+A &lt;a href=&quot;https://ci.sagely.ca&quot;&gt;Jenkins CI server&lt;/a&gt;, A number of web servers, Minecraft
+servers, and a handful of other things.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Managing all of these as one-off&amp;#8217;s is cumbersome.  Sometimes, I don&amp;#8217;t touch some
+of these services for months, or even a year.  Others, I&amp;#8217;m messing with daily.
+I needed a system to handle Administration of the services, without adding too
+much to my workload.  My other motivation was the fact that I wanted to become
+more familiar with Server Automation options, which have developed significantly
+since I was a Sysadmin in the 90&amp;#8217;s using &lt;a href=&quot;http://cfengine.com&quot;&gt;CFEngine&lt;/a&gt;.  (Kudos
+to the CFEngine folks for still going strong!)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Initially, I spent a lot of time working with the Open Source version of
+&lt;a href=&quot;https://puppet.com/&quot;&gt;Puppet&lt;/a&gt;.  It looks like a great tool for large-scale
+deployments, but trying to run Puppet &quot;masterless&quot; just proved too difficult in
+my environment.  I wanted something that didn&amp;#8217;t require a server to be 24/7
+accessible.  I tried running the Puppet Master on my &lt;a href=&quot;http://freenas.org/&quot;&gt;FreeNAS&lt;/a&gt;
+system in a jail, but I just kept running into obstacles.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;He said we wouldn&amp;#8217;t get it. He said we wouldn&amp;#8217;t get the treasure we seek
+on account of our obstacles.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8201;&amp;#8212;&amp;#8201;Pete, O Brother, Where Art Thou?&lt;/p&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I looked briefly at Chef, but it seemed more like Puppet, in terms of required
+infrastructure.  Ansible got my attention not just because it was written in
+Python, one of my preferred languages.  It was a lot lighter-weight, it didn&amp;#8217;t
+require a centralized trusted server, and it had a lot fewer rules.  So all of
+the ad-hoc tasks I need to run are no problem.  In fact, Ansible encourages me
+to keep working in a very ad-hoc way, but allows me to add automation and process
+to the things I was already doing.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        <pubDate>Mon, 02 Jan 2017 00:00:00 -0500</pubDate>
+        <link>http://sagely.ca/Ansible_to_Manage_Personal_Servers</link>
+        <guid isPermaLink="true">http://sagely.ca/Ansible_to_Manage_Personal_Servers</guid>
+        
+        <category>ansible</category>
+        
+        <category>automation</category>
+        
+        <category>servers</category>
+        
+        <category>python</category>
+        
+        
+        <category>coding</category>
+        
+      </item>
     
       <item>
         <title>Jekyll and Asciidoc</title>

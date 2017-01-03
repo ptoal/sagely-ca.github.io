@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sagely Go... | What is Sagely?</title>
-    <meta name="description" content="An introduction to this blog.">
+    <title>Sagely Go... | Ansible to Manage Personal Servers</title>
+    <meta name="description" content="Decision-making process for using Ansible to manage a number of personal servers">
 
     <link rel="stylesheet" href="/css/main.css">
 
-    <link rel="canonical" href="http://sagely.ca/What-is-Sagely">
+    <link rel="canonical" href="http://sagely.ca/Ansible_to_Manage_Personal_Servers">
     <link rel="alternate" type="application/rss+xml" title="Sagely Go..." href="http://sagely.ca/feed.xml" />
 
     <!--[if lt IE 9]>
@@ -37,7 +37,7 @@
 </noscript>
 <!-- end no script -->
 
-    <header class="hero-image" style="background-image: url('/img/feature-sailing.jpg');">
+    <header class="hero-image" style="background-image: url('/img/feature-notebook.jpg');">
     <span class="menu-trigger animated fadeInDown">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -62,30 +62,65 @@
     <div class="row">
         <div class="col-xs-12 single-content">
             <p class="meta">
-                <a href="author/sage905">Sage905</a> in <a href='/category/life'>Life</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i> 1 minutes
+                <a href="author/sage905">Sage905</a> in <a href='/category/coding'>Coding</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i> 5 minutes
             </p>
             <p class="meta">
-                Tags: 
+                Tags: ansible automation servers python 
             </p>
 
-            <h1>What is Sagely?</h1>
+            <h1>Ansible to Manage Personal Servers</h1>
 
-            <div class="paragraph">
-<p>Sagely is the way I try to approach challenges in life.  That&#8217;s not to say that
-I consider myself particularly wise, but that I aspire to approach things the way
-I imagine someone who is wise would do.</p>
+            <div class="sect1">
+<h2 id="background">Background</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I have a lot of hobbies.  In the Venn diagram of my hobbies, the circle labelled
+"Nerdy" is disproportionately large.  What that means, for me, is that I have a
+large number of computing systems to manage.  I am a principal member of the
+<a href="http://pwn9.com">Pwn9.com</a> gaming community,  I have a home NAS that runs a number
+of services, such as my <a href="http://sagetv.com/">SageTV</a> installation, a
+<a href="http://dirvish.org">Dirvish</a> backup server (which backs up all the other servers)
+A <a href="https://ci.sagely.ca">Jenkins CI server</a>, A number of web servers, Minecraft
+servers, and a handful of other things.</p>
 </div>
 <div class="paragraph">
-<p>What you&#8217;ll find here is a collection of posts about Coding, Gaming, and perhaps
-some general Philosophy.</p>
+<p>Managing all of these as one-off&#8217;s is cumbersome.  Sometimes, I don&#8217;t touch some
+of these services for months, or even a year.  Others, I&#8217;m messing with daily.
+I needed a system to handle Administration of the services, without adding too
+much to my workload.  My other motivation was the fact that I wanted to become
+more familiar with Server Automation options, which have developed significantly
+since I was a Sysadmin in the 90&#8217;s using <a href="http://cfengine.com">CFEngine</a>.  (Kudos
+to the CFEngine folks for still going strong!)</p>
 </div>
 <div class="paragraph">
-<p>This is a place for me to put my general musing, some of which may be useful to
-others, I hope. Occasionally, there may also be contributions from guest authors.</p>
+<p>Initially, I spent a lot of time working with the Open Source version of
+<a href="https://puppet.com/">Puppet</a>.  It looks like a great tool for large-scale
+deployments, but trying to run Puppet "masterless" just proved too difficult in
+my environment.  I wanted something that didn&#8217;t require a server to be 24/7
+accessible.  I tried running the Puppet Master on my <a href="http://freenas.org/">FreeNAS</a>
+system in a jail, but I just kept running into obstacles.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>He said we wouldn&#8217;t get it. He said we wouldn&#8217;t get the treasure we seek
+on account of our obstacles.</p>
 </div>
 <div class="paragraph">
-<p>I can be contacted via Twitter, as well as on Discord.app, where I am often
-found in the <a href="https://discord.gg/0yT9UMxwlebCcR5t">Pwn9</a> server as Sage905.</p>
+<p>&#8201;&#8212;&#8201;Pete, O Brother, Where Art Thou?</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>I looked briefly at Chef, but it seemed more like Puppet, in terms of required
+infrastructure.  Ansible got my attention not just because it was written in
+Python, one of my preferred languages.  It was a lot lighter-weight, it didn&#8217;t
+require a centralized trusted server, and it had a lot fewer rules.  So all of
+the ad-hoc tasks I need to run are no problem.  In fact, Ansible encourages me
+to keep working in a very ad-hoc way, but allows me to add automation and process
+to the things I was already doing.</p>
+</div>
+</div>
 </div>
 
 
@@ -97,8 +132,8 @@ found in the <a href="https://discord.gg/0yT9UMxwlebCcR5t">Pwn9</a> server as Sa
                  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
                  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
                 var disqus_config = function () {
-                    this.page.url = "http://sagely.ca/What-is-Sagely";  // Replace PAGE_URL with your page's canonical URL variable
-                    this.page.identifier = "/What is Sagely"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    this.page.url = "http://sagely.ca/Ansible_to_Manage_Personal_Servers";  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = "/Ansible_to_Manage_Personal_Servers"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
                 };
 
                 (function() { // DON'T EDIT BELOW THIS LINE
@@ -126,8 +161,8 @@ found in the <a href="https://discord.gg/0yT9UMxwlebCcR5t">Pwn9</a> server as Sa
         </div>
         <div class="col-xs-12 col-sm-6">
             <div class="category-list">
-                <p>Published <span>Jun 25, 2016</span></p>
-                <p><a href="author/sage905">Sage905</a> in <a href='/category/life'>Life</a></p>
+                <p>Published <span>Jan 2, 2017</span></p>
+                <p><a href="author/sage905">Sage905</a> in <a href='/category/coding'>Coding</a></p>
 
                 <div class="other-catergories">
                     <h3>Also found in</h3>
@@ -135,7 +170,7 @@ found in the <a href="https://discord.gg/0yT9UMxwlebCcR5t">Pwn9</a> server as Sa
                     <ul>
                         
                         <li>
-                            <a href='/category/life'>Life</a>
+                            <a href='/category/coding'>Coding</a>
                             
                         </li>
                         
@@ -147,10 +182,10 @@ found in the <a href="https://discord.gg/0yT9UMxwlebCcR5t">Pwn9</a> server as Sa
             <div class="social">
                 <p>Share this article</p>
                 <div class="social-links">
-                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://sagely.ca/What-is-Sagely"><i class="fa fa-twitter"></i></a>
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://sagely.ca/Ansible_to_Manage_Personal_Servers"><i class="fa fa-twitter"></i></a>
 
-                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://sagely.ca/What-is-Sagely"><i class="fa fa-facebook-official"></i></a>
-                    <a class="social-icon" data-platform="mail"  href="mailto:?body=http://sagely.ca/What-is-Sagely"><i class="fa fa-envelope"></i></a>
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://sagely.ca/Ansible_to_Manage_Personal_Servers"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:?body=http://sagely.ca/Ansible_to_Manage_Personal_Servers"><i class="fa fa-envelope"></i></a>
                 </div>
             </div>
         </div>
@@ -162,18 +197,18 @@ found in the <a href="https://discord.gg/0yT9UMxwlebCcR5t">Pwn9</a> server as Sa
         <div class="row read-another-section">
     
         
-        <a href="/Ansible_to_Manage_Personal_Servers"><div class="col-sm-6 col-md-2 no-gutter read-another-container">
-            <div class="overlay"></div>
-            <img src='/img/recommend-laptop.jpg'>
-            <h3 class="read-another">Ansible to Manage Personal Servers</h3>
-        </div></a>
-        
-    
-        
         <a href="/Jekyll-and-AsciiDoc"><div class="col-sm-6 col-md-2 no-gutter read-another-container">
             <div class="overlay"></div>
             <img src='/img/recommend-laptop.jpg'>
             <h3 class="read-another">Jekyll and Asciidoc</h3>
+        </div></a>
+        
+    
+        
+        <a href="/What-is-Sagely"><div class="col-sm-6 col-md-2 no-gutter read-another-container">
+            <div class="overlay"></div>
+            <img src='/img/recommend-wolf.jpg'>
+            <h3 class="read-another">What is Sagely?</h3>
         </div></a>
         
     
