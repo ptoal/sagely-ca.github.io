@@ -99,10 +99,11 @@ the "SSH password:" prompt was correct.
 This will give you a basic ansible setup to start hacking on.  I have set up a
 git repo with a copy of my setup, which you can use to follow along, if you wish.
 You can get it by running the following command:
+
 `git clone --recursive git://github.com/ptoal/ansible-example`
 
-NOTE: It is important to include the "--recursive" to get a copy of the ansible
-repo.
+NOTE: It is important to include the "--recursive" option to get a copy of the
+ansible repo.
 
 I will create Git "Tags" for each tutorial post in this blog.  The first tag,
 matching this post, is called "Intro".  It will give you a directory with a single
