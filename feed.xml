@@ -6,8 +6,8 @@
 </description>
     <link>http://sagely.ca/</link>
     <atom:link href="http://sagely.ca/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 03 Jan 2017 20:09:15 -0500</pubDate>
-    <lastBuildDate>Tue, 03 Jan 2017 20:09:15 -0500</lastBuildDate>
+    <pubDate>Tue, 03 Jan 2017 20:17:52 -0500</pubDate>
+    <lastBuildDate>Tue, 03 Jan 2017 20:17:52 -0500</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -113,6 +113,11 @@ SSH password:
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The &quot;SUCCESS&quot; message indicates that Ansible can talk to our host (127.0.0.1) via
+ssh, successfully logged in as the current user, and the password we provided at
+the &quot;SSH password:&quot; prompt was correct.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;This will give you a basic ansible setup to start hacking on.  I have set up a
 git repo with a copy of my setup, which you can use to follow along, if you wish.
 You can get it by running the following command:
@@ -139,7 +144,7 @@ flag, it will clone the ansible repo into an 'ansible' subdirectory.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;In the next post, I&amp;#8217;ll talk about how I use &lt;a href=&quot;http://vagrantup.com&quot;&gt;Vagrant&lt;/a&gt; and
-&lt;a href=&quot;http://virtualbox.org&quot;&gt;VirtualBox&lt;/a&gt;to mock up all of my servers before I actually
+&lt;a href=&quot;http://virtualbox.org&quot;&gt;VirtualBox&lt;/a&gt; to mock up all of my servers before I actually
 deploy them to a hosting provider.  This combination allows you to iterate over
 your ansible changes quickly, allowing you to identify errors in your ansible setup
 before pushing out to a production server.&lt;/p&gt;

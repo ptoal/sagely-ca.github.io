@@ -171,6 +171,11 @@ SSH password:
 </div>
 </div>
 <div class="paragraph">
+<p>The "SUCCESS" message indicates that Ansible can talk to our host (127.0.0.1) via
+ssh, successfully logged in as the current user, and the password we provided at
+the "SSH password:" prompt was correct.</p>
+</div>
+<div class="paragraph">
 <p>This will give you a basic ansible setup to start hacking on.  I have set up a
 git repo with a copy of my setup, which you can use to follow along, if you wish.
 You can get it by running the following command:
@@ -197,7 +202,7 @@ flag, it will clone the ansible repo into an 'ansible' subdirectory.</p>
 </div>
 <div class="paragraph">
 <p>In the next post, I&#8217;ll talk about how I use <a href="http://vagrantup.com">Vagrant</a> and
-<a href="http://virtualbox.org">VirtualBox</a>to mock up all of my servers before I actually
+<a href="http://virtualbox.org">VirtualBox</a> to mock up all of my servers before I actually
 deploy them to a hosting provider.  This combination allows you to iterate over
 your ansible changes quickly, allowing you to identify errors in your ansible setup
 before pushing out to a production server.</p>
