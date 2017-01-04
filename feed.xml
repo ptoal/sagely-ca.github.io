@@ -6,8 +6,8 @@
 </description>
     <link>http://sagely.ca/</link>
     <atom:link href="http://sagely.ca/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 03 Jan 2017 20:17:52 -0500</pubDate>
-    <lastBuildDate>Tue, 03 Jan 2017 20:17:52 -0500</lastBuildDate>
+    <pubDate>Tue, 03 Jan 2017 22:06:50 -0500</pubDate>
+    <lastBuildDate>Tue, 03 Jan 2017 22:06:50 -0500</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -120,8 +120,10 @@ the &quot;SSH password:&quot; prompt was correct.&lt;/p&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;This will give you a basic ansible setup to start hacking on.  I have set up a
 git repo with a copy of my setup, which you can use to follow along, if you wish.
-You can get it by running the following command:
-&lt;code&gt;git clone --recursive git://github.com/ptoal/ansible-example&lt;/code&gt;&lt;/p&gt;
+You can get it by running the following command:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;code&gt;git clone --recursive git://github.com/ptoal/ansible-example&lt;/code&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;admonitionblock note&quot;&gt;
 &lt;table&gt;
@@ -130,8 +132,8 @@ You can get it by running the following command:
 &lt;i class=&quot;fa icon-note&quot; title=&quot;Note&quot;&gt;&lt;/i&gt;
 &lt;/td&gt;
 &lt;td class=&quot;content&quot;&gt;
-It is important to include the &quot;--recursive&quot; to get a copy of the ansible
-repo.
+It is important to include the &quot;--recursive&quot; option to get a copy of the
+ansible repo.
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
