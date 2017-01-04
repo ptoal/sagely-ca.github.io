@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  * Bootstrap v3.2.0 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
@@ -5,6 +6,7 @@
  */
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Droid+Serif:400,400italic,700);
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web);
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -6919,16 +6921,16 @@ textarea {
 
 p {
   margin-bottom: 30px;
-  font-size: 18px;
-  font-size: 1.8rem; }
+  font-size: 16px;
+  font-size: 1.6rem; }
   @media (min-width: 768px) {
     p {
-      font-size: 20px;
-      font-size: 2rem; } }
+      font-size: 18px;
+      font-size: 1.8rem; } }
   @media (min-width: 992px) {
     p {
-      font-size: 21px;
-      font-size: 2.1rem; } }
+      font-size: 19px;
+      font-size: 1.9rem; } }
 
 a {
   text-decoration: none;
@@ -6944,12 +6946,12 @@ h2 {
   font-family: "Source Sans Pro", Helvetica, Arial, sans-serif; }
 
 h1 {
-  font-size: 38px;
-  font-size: 3.8rem; }
+  font-size: 36px;
+  font-size: 3.6rem; }
 
 h2 {
-  font-size: 32px;
-  font-size: 3.2rem; }
+  font-size: 30px;
+  font-size: 3rem; }
   h2.favorites {
     padding: 10px 0;
     color: #b3b3b7;
@@ -6961,8 +6963,8 @@ h2 {
     font-size: 1.2rem; }
 
 h3 {
-  font-size: 26px;
-  font-size: 2.6rem; }
+  font-size: 24px;
+  font-size: 2.4rem; }
 
 b {
   font-weight: 700; }
@@ -7586,8 +7588,9 @@ ol {
         padding: 0 30px; } }
     .sidebar .site-info h1 {
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-      letter-spacing: -2pt;
-      margin-bottom: 0; }
+      letter-spacing: -1pt;
+      margin-bottom: 0;
+      font-family: "Titillium Web", "Source Sans Pro", Helvetica, Arial, sans-serif; }
       @media (min-width: 768px) {
         .sidebar .site-info h1 {
           letter-spacing: 0pt;
@@ -7712,19 +7715,19 @@ ol {
 .hero-image {
   height: 150px;
   width: 100%;
-  background-image: url(../img/default-single-hero.jpg);
+  background-image: url(/img/default-single-hero.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; }
   @media (min-width: 768px) {
     .hero-image {
-      height: 200px; } }
+      height: 300px; } }
   @media (min-width: 992px) {
     .hero-image {
-      height: 290px; } }
+      height: 360px; } }
   @media (min-width: 1200px) {
     .hero-image {
-      height: 360px; } }
+      height: 400px; } }
 
 .meta {
   *zoom: 1;
@@ -8211,13 +8214,10 @@ form {
 .no-gutter-right {
   padding-right: 0; }
 
-html,
-body {
-  font-size: 62.5%; }
-  @media (min-width: 992px) {
-    html,
-    body {
-      height: 100%; } }
+@media (min-width: 992px) {
+  html,
+  body {
+    height: 100%; } }
 
 .hide {
   position: absolute !important;
@@ -8237,3 +8237,61 @@ a {
     text-decoration: none;
     color: #333;
     border-bottom: solid 1px #999; }
+
+.admonitionblock td.content > .title {
+  line-height: 1.45;
+  color: #7a2518;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 0.25em; }
+
+.admonitionblock td.content > .title {
+  text-rendering: optimizeLegibility;
+  text-align: left;
+  font-family: "Noto Serif", "DejaVu Serif", serif;
+  font-size: 1rem;
+  font-style: italic; }
+
+.admonitionblock > table {
+  border-collapse: separate;
+  border: 0;
+  background: none;
+  width: 100%;
+  margin-bottom: 1.25em; }
+  .admonitionblock > table td.icon {
+    text-align: center;
+    width: 80px; }
+    .admonitionblock > table td.icon img {
+      max-width: initial; }
+    .admonitionblock > table td.icon .title {
+      font-weight: bold;
+      font-family: "Open Sans", "DejaVu Sans", sans-serif;
+      text-transform: uppercase; }
+  .admonitionblock > table td.content {
+    padding-left: 1.125em;
+    padding-right: 1.25em;
+    border-left: 1px solid #ddddd8;
+    color: rgba(0, 0, 0, 0.6); }
+    .admonitionblock > table td.content > :last-child > :last-child {
+      margin-bottom: 0; }
+
+.admonitionblock td.icon [class^="fa icon-"] {
+  font-size: 2.5em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  cursor: default; }
+.admonitionblock td.icon .icon-note:before {
+  content: "";
+  color: #19407c; }
+.admonitionblock td.icon .icon-tip:before {
+  content: "";
+  text-shadow: 1px 1px 2px rgba(155, 155, 0, 0.8);
+  color: #111; }
+.admonitionblock td.icon .icon-warning:before {
+  content: "";
+  color: #bf6900; }
+.admonitionblock td.icon .icon-caution:before {
+  content: "";
+  color: #bf3400; }
+.admonitionblock td.icon .icon-important:before {
+  content: "";
+  color: #bf0000; }
