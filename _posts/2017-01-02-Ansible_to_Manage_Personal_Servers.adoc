@@ -53,15 +53,72 @@ to the things I was already doing.
 I spent a lot of time just playing around with Ansible, and becoming familiar
 with it's philosophy, and function.  As you would expect, the https://docs.ansible.com/[Ansible Docs]
 are a great place to start.  I also heavily rely on the Ansible docsets in https://kapeli.com/dash[Dash.app]
-which are indispensable while learning the ins and outs.
+which are indispensable while learning the ins and outs, and in day to day use.
 
 === Installation
 
-I decided to use the development version, so I could get all the latest and greatest
-modules, etc.  Since nothing in my infrastructure is particularly critical, I figured
-I could handle any bugs without much issue. (Incidentally, I haven't found any, yet)
+I decided to use the http://asciidoctor.org/docs/[development version], so I
+could get all the latest and greatest modules, etc.  Since nothing in my
+infrastructure is particularly critical, I figured I could handle any bugs without
+much issue. (Incidentally, I haven't found any in almost a year of using the
+dev version.) Instructions below are taken from the Ansible Docs.
 
-... WIP ... To Be Continued...
+[source, shell]
+----
+$ git clone git://github.com/ansible/ansible.git --recursive
+$ cd ./ansible
+
+# Bash environment setup (adapt if you are using a different shell)
+$ source ./hacking/env-setup
+
+# Make sure python dependencies are installed
+$ sudo pip install paramiko PyYAML Jinja2 httplib2 six
+----
+
+That should install ansible on your system.  We can test by setting up our local
+host in a hosts file, and running the ansible "ping" module:
+
+[source, shell]
+----
+# If you were in the ansible checkout directory, go back up to the main dir.
+$ cd ..
+
+$ echo "127.0.0.1" > ansible_hosts
+$ ansible -i ansible_hosts -m ping all --ask-pass
+SSH password:
+127.0.0.1 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
+----
+
+This will give you a basic ansible setup to start hacking on.  I have set up a
+git repo with a copy of my setup, which you can use to follow along, if you wish.
+You can get it by running the following command:
+`git clone --recursive git://github.com/ptoal/ansible-example`
+
+NOTE: It is important to include the "--recursive" to get a copy of the ansible
+repo.
+
+I will create Git "Tags" for each tutorial post in this blog.  The first tag,
+matching this post, is called "Intro".  It will give you a directory with a single
+file, ansible_hosts, with one host entry (127.0.0.1).  Additionally, with the --recurse
+flag, it will clone the ansible repo into an 'ansible' subdirectory.
+
+In the next post, I'll talk about how I use http://vagrantup.com[Vagrant] and
+http://virtualbox.org[VirtualBox]to mock up all of my servers before I actually
+deploy them to a hosting provider.  This combination allows you to iterate over
+your ansible changes quickly, allowing you to identify errors in your ansible setup
+before pushing out to a production server.
+
+Until next time.
+
+-Sage
+
+
+
+
+
 
 
 
