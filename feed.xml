@@ -6,8 +6,8 @@
 </description>
     <link>http://sagely.ca/</link>
     <atom:link href="http://sagely.ca/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 03 Jan 2017 18:16:48 -0500</pubDate>
-    <lastBuildDate>Tue, 03 Jan 2017 18:16:48 -0500</lastBuildDate>
+    <pubDate>Tue, 03 Jan 2017 20:09:15 -0500</pubDate>
+    <lastBuildDate>Tue, 03 Jan 2017 20:09:15 -0500</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -71,21 +71,84 @@ to the things I was already doing.&lt;/p&gt;
 &lt;p&gt;I spent a lot of time just playing around with Ansible, and becoming familiar
 with it&amp;#8217;s philosophy, and function.  As you would expect, the &lt;a href=&quot;https://docs.ansible.com/&quot;&gt;Ansible Docs&lt;/a&gt;
 are a great place to start.  I also heavily rely on the Ansible docsets in &lt;a href=&quot;https://kapeli.com/dash&quot;&gt;Dash.app&lt;/a&gt;
-which are indispensable while learning the ins and outs.&lt;/p&gt;
+which are indispensable while learning the ins and outs, and in day to day use.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect2&quot;&gt;
 &lt;h3 id=&quot;installation&quot;&gt;Installation&lt;/h3&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;I decided to use the development version, so I could get all the latest and greatest
-modules, etc.  Since nothing in my infrastructure is particularly critical, I figured
-I could handle any bugs without much issue. (Incidentally, I haven&amp;#8217;t found any, yet)&lt;/p&gt;
+&lt;p&gt;I decided to use the &lt;a href=&quot;http://asciidoctor.org/docs/&quot;&gt;development version&lt;/a&gt;, so I
+could get all the latest and greatest modules, etc.  Since nothing in my
+infrastructure is particularly critical, I figured I could handle any bugs without
+much issue. (Incidentally, I haven&amp;#8217;t found any in almost a year of using the
+dev version.) Instructions below are taken from the Ansible Docs.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;olist lowerroman&quot;&gt;
-&lt;ol class=&quot;lowerroman&quot; type=&quot;i&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;WIP &amp;#8230;&amp;#8203; To Be Continued&amp;#8230;&amp;#8203;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;CodeRay highlight&quot;&gt;&lt;code data-lang=&quot;shell&quot;&gt;$ git clone git://github.com/ansible/ansible.git --recursive
+$ cd ./ansible
+
+# Bash environment setup (adapt if you are using a different shell)
+$ source ./hacking/env-setup
+
+# Make sure python dependencies are installed
+$ sudo pip install paramiko PyYAML Jinja2 httplib2 six&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;That should install ansible on your system.  We can test by setting up our local
+host in a hosts file, and running the ansible &quot;ping&quot; module:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;CodeRay highlight&quot;&gt;&lt;code data-lang=&quot;shell&quot;&gt;# If you were in the ansible checkout directory, go back up to the main dir.
+$ cd ..
+
+$ echo &amp;quot;127.0.0.1&amp;quot; &amp;gt; ansible_hosts
+$ ansible -i ansible_hosts -m ping all --ask-pass
+SSH password:
+127.0.0.1 | SUCCESS =&amp;gt; {
+    &amp;quot;changed&amp;quot;: false,
+    &amp;quot;ping&amp;quot;: &amp;quot;pong&amp;quot;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This will give you a basic ansible setup to start hacking on.  I have set up a
+git repo with a copy of my setup, which you can use to follow along, if you wish.
+You can get it by running the following command:
+&lt;code&gt;git clone --recursive git://github.com/ptoal/ansible-example&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock note&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;i class=&quot;fa icon-note&quot; title=&quot;Note&quot;&gt;&lt;/i&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+It is important to include the &quot;--recursive&quot; to get a copy of the ansible
+repo.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I will create Git &quot;Tags&quot; for each tutorial post in this blog.  The first tag,
+matching this post, is called &quot;Intro&quot;.  It will give you a directory with a single
+file, ansible_hosts, with one host entry (127.0.0.1).  Additionally, with the --recurse
+flag, it will clone the ansible repo into an 'ansible' subdirectory.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In the next post, I&amp;#8217;ll talk about how I use &lt;a href=&quot;http://vagrantup.com&quot;&gt;Vagrant&lt;/a&gt; and
+&lt;a href=&quot;http://virtualbox.org&quot;&gt;VirtualBox&lt;/a&gt;to mock up all of my servers before I actually
+deploy them to a hosting provider.  This combination allows you to iterate over
+your ansible changes quickly, allowing you to identify errors in your ansible setup
+before pushing out to a production server.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Until next time.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;-Sage&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
