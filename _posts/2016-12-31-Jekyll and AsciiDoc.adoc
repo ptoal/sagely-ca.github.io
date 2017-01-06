@@ -28,7 +28,7 @@ Pretty much a no-brainer.
 
 == Github Pages
 
-My first decision was that I would use https://pages.github.com/[Github Pages].
+I decided that I would use https://pages.github.com/[Github Pages] for hosting.
 The pro's for this choice were:
 
  - Free
@@ -51,7 +51,7 @@ Nice.
 This decision was borne out of the Github Pages decision.  https://jekyllrb.com/[Jekyll]
 is a static site generator written in Ruby, and supported by Github Pages natively.
 
-Unfortunately, my next decision, to use Asciidoc, required that I not use the built-in
+Unfortunately my next decision, to use Asciidoc, required that I not use the built-in
 integration.  Not to worry, though.  I found a workaround that still meets my goal
 to have automatic publishing based on a `git push`, without requiring any of my
 own infrastructure.

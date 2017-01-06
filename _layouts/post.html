@@ -18,9 +18,11 @@ layout: default
             <p class="meta">
                 <a href="{{ page.author_url | prepend: site.baseurl }}">{{ page.author_name | capitalize}}</a> in <a href='{{ "/category/" | append: page.categories.first | prepend: site.baseurl }}'>{{ page.categories[0] | capitalize }}</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i> {{ page.read_time }} minutes
             </p>
+            {% if page.tags %}
             <p class="meta">
-                Tags: {% for tag in page.tags %}{{ tag }} {% endfor %}
+                <i class="fa fa-tags" ></i> {% for tag in page.tags %}{{ tag }} {% endfor %}
             </p>
+            {% endif %}
 
             <h1>{{ page.title }}</h1>
 
