@@ -5,7 +5,7 @@
 :page-author_avatar: sage
 :page-author_name: Sage905
 :page-permalink: /author/sage905
-:page-desc: A little bit about me...
+:page-desc: Who are you?
 
 ## About Patrick Toal (aka Sage905)
 
@@ -19,14 +19,14 @@ comic books, http://groo.com/[Groo the Wanderer] by the talented Sergio Aragoné
 anachronism used by old BBS'ers to uniquely identify themselves.  It is merely
 the telephone area code he lived in at the time.
 
-Sage has been involved with Internet technologies in one form or another since
+Patrick has been involved with Internet technologies in one form or another since
 the mid 90's.  During the early part of the 90's, he was employed by a local
 computer shop called "Rentronics", where he met a colleague who was a student at
-McMaster University.  This fellow shared his McMaster user account with Sage,
-for which he will be forever grateful as this was his door to the Internet,
-which would forever change the course of Sage's life.
+McMaster University.  This fellow shared his McMaster user account with Patrick,
+for which he will be forever grateful. This was his door to the Internet,
+which would forever change the course of Patrick's life.
 
-The Internet allowed Sage to learn the basics about Unix and shortly thereafter
+The Internet allowed Patrick to learn the basics about Unix and shortly thereafter
 he discovered Linux.  Countless hours were spent installing, compiling, formatting
 and starting over again.  All the while, new skills were being developed that
 would open even more doors in the future.
@@ -40,13 +40,13 @@ the next door in his career.
 
 At the dawn of the Broadband Access era, he was fortunate to be hired by a
 forward-looking cable company when Cable Modem technology was in infancy.
-Over the course of 5 years, Sage was the Server and Network Administrator,
+Over the course of 5 years, Patrick was the Server and Network Administrator,
 responsible for everything from Server and Router installation and operation to
 software development, Tier 3 support, and on-site installer.  After 5 years,
 the company attracted the attentions of a wealthy suitor, and the cable assets
 were sold off.  It was time to look for a new path.
 
-Thanks to connections made at the cable company, Sage was able to get an
+Thanks to connections made at the cable company, Patrick was able to get an
 interview (well, five, actually) at Cisco, the juggernaut of the Internet at
 that time.  This new opportunity turned into a 16 year career of helping
 customers design, deploy and operate massive networks to provide Internet
@@ -55,7 +55,7 @@ Network Design, Cable Access, UI/UX Development, Server Automation and dozens of
 other technologies involving industry buzzwords.  It was a truly amazing time,
 working with amazing people.
 
-Sage is preparing to start a new chapter in his life, and perhaps this blog
+Patrick is preparing to start a new chapter in his life, and perhaps this blog
 will become part of it.  There's an equally good chance that it will fall into
 disuse as he becomes enveloped by whatever the future holds.  Either way,
 he's looking forward to some exciting times.
