@@ -9,11 +9,12 @@
 title: Sagely Go...
 description: > # this means to ignore newlines until "baseurl:"
   Words of wisdom, or not; Thoughts to mull about.
-baseurl: "" # the subpath of your site, e.g. /blog
+#baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://sagely.ca" # the base hostname & protocol for your site
 twitter_username: sage905
 github_username:  sage905
-permalink: :title
+permalink: /:year/:month/:title
+lsi: true
 
 # Build settings
 exclude:
@@ -28,6 +29,7 @@ asciidoc: {}
 asciidoctor:
   base_dir: :docdir
   safe: unsafe
+  imagesdir: img
   attributes:
     - idseparator=_
     - source-highlighter=coderay
@@ -40,7 +42,7 @@ nav_list:
   About : ['About', '/about', 'fa-anchor']
 #  Contact : ['Contact', '/contact', 'fa-plane']
   Author : ['Author', '/author/sage905', 'fa-user']
-single_footer: '<p>&copy; 2017 <a href="/">latest posts</a></p>'
+single_footer: '<p>&copy; 2017 Patrick Toal <a href="/">latest posts</a></p>'
 footer_links:
     About: ['About', '/about']
     Writer: ['Sagely', '/about']

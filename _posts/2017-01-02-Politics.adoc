@@ -1,0 +1,40 @@
+= My Politics
+:page-layout: post
+:page-categories: [ life ]
+:page-square_related: recommend-fire
+:page-feature_image: feature-fire
+:page-read_time: 10
+:page-tags: [ politics, social, opinion ]
+:page-excerpt: This post was prepared or accomplished by Sage905 in his personal capacity. The opinions expressed in this article are the author's own and do not reflect the view of, well, anyone else, really.  I mean, if we all shared the same opinion, what would we complain about?
+
+== My Political Motivations
+
+What I seek out of government policy is prioritized below.  There is joviality in my writing.  If you can't figure out where I'm being serious, and when I'm kidding, you probably shouldn't be reading this.
+
+This list is incomplete. From time to time, I review this list and apply any "current opinion" against them.  I then either adjust my opinion or this list, based on which I feel is less correct with the available information at that moment in time.
+
+I wonder how many people do something similar?
+
+.Random Quote
+[quote, Clifford Stoll]
+Data is not information, information is not knowledge, knowledge is not understanding, understanding is not wisdom.
+
+== My List
+
+NOTE: It is my prerogative footnote:[I just learned the correct spelling of this today] to update this as my thought process evolves.  I'm sure this will grow significantly over time.  YOU can contribute to this by making comments below *after* you have read the whole text.  They must be intelligent and rational, and based on data, where appropriate.
+
+In my view, in descending order of priority, Governmental policies:
+
+  . MUST NOT contribute to the long-term destruction of our species, unless that is inevitable, in which case, let's go out in a blaze of glory.
+
+  . SHOULD NOT be manipulable to the advantage of any person or special interest group.
+
+  . SHOULD motivate individuals to work together for the best mutual outcomes, and apply https://en.wikipedia.org/wiki/Game_theory[Game Theory] where appropriate.
+
+  . SHOULD be biased toward intelligent, rational decision making, and biased against irrational and uninformed opinions.
+
+  . SHOULD, when forced, attempt to sove the https://en.wikipedia.org/wiki/Trolley_problem[Trolley Problem] in a way which creates the minimal amount of suffering for the largest group of people.
+
+  . SHOULD encourage people to contribute to society in positive ways.
+
+  . SHOULD encourage people to pursue enterprises which allow them to achieve goals.

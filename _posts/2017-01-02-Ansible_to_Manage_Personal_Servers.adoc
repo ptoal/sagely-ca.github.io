@@ -1,6 +1,6 @@
 = Ansible to Manage Personal Servers
 :page-layout: post
-:page-categories: [ coding ]
+:page-categories: [ coding, ]
 :page-square_related: recommend-laptop
 :page-feature_image: feature-domore
 :page-read_time: 5

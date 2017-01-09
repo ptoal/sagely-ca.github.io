@@ -1,0 +1,135 @@
+= Social Notworking
+:page-layout: post
+:page-categories: [life, ]
+:page-feature_image: feature-people
+:page-tags: [ socialnetworking, politics, trolls, argument]
+:page-read_time: 10
+:page-liquid: true
+:page-excerpt: Being manipulated into behaving badly.
+
+The other day something happened that has been weighing heavily on me and I need to write about it to process my thoughts.
+
+I got into an argument with a friend on Facebook.
+
+Now, gentle reader, you may say:  "What's so unusual about that?  It happens all the time."  True, but in this case, I attacked my friend in a way that is very uncharacteristic of me.  I usually work hard to craft my argument to articulate my perspective on issues in a civilized way conducive to broadening understanding.  This time, however, I was just a jerk.
+
+== Trigger
+
+The new year rolled around and brought with it new things to complain about.  The political spin machine kicked into high gear, partisan groups started creating memes, and people started sharing them.  The first one I saw annoyed me with its lack of perspective and inflammatory tone.  The second one added fuel to the fire.  By the fifth one, my frustration for them had built to the point where I was unable to restrain the beast inside that yearns to get people to think about big problems, rather than complain about them.
+
+NOTE: I'm not smarter than your average bear.  I don't think that *my* world view is  right, nor do I believe that there is a "right" answer to any sufficiently complex societal issue.  If you want an idea of where I stand on issues, you can get an idea in my post on link:{% post_url 2017-01-02-Politics %}[My Politics].  But, don't.  Really.  It will just give you and I something (else?) to disagree about.
+
+The straw that broke the camels back turned out to be a meme about taxes that showed up in my feed.  If you want an idea of the type of post it was, https://www.facebook.com/Justintrudeaunope[here is the FB Page it came from].  I can't tell you exactly why these memes rub me the wrong way, but they do.  I think it's because they appeal to our emotions, rather than our intellect, and I feel that they manipulate us into being sheeple about issues we should be taking the time to think deeply about and discuss rationally.  I had had enough, and needed to say something.
+
+== Mistake
+
+What I did next was innocent enough, I thought.  I wanted to broaden the conversation, so I posted a link to a book that I found thanks to a post from https://fee.org/articles/why-does-mike-rowe-love-this-economics-book/[Mike Rowe during the 2016 US Presidential Election].  The book is https://en.wikipedia.org/wiki/Economics_in_One_Lesson[Economics in One Lesson by Henry Hazlitt].  I thought this was a fantastic book that went right to the heart of many popular misconceptions, and would really stimulate a better discussion than a meme war.  I didn't post any commentary, just the link (which facebook added a preview of the cover to):
+
+[[fb-post]]
+.Facebook Post
+image:/img{{ page.id }}_fbpost.png[]
+
+The response I got surprised me:
+
+____
+I'm not even going to read this. I have run numerous multi-million dollar businesses with great success, and have a solid reputation for financials. I understand economics. Please don't try to make me feel like I don't understand. If you feel my understanding isn't to your level, then don't feel you have to comment on, or even look at my postings. My opinion is my opinion, and yours is yours.
+____
+
+I'm not sure what made my friend think I was trying to be superior.  I guess it was the lack of context around why I posted that book.  If I had taken the time to think about the message I really wanted to deliver, I probably would have posted something like this, with the link to the book underneath:
+
+____
+"Nobody likes taxes, but we need to consider the grand economic picture; We need government services.  I get the impression that you are not supportive of the current government and I respect your opinion, so I'd like to discuss this further.  What policy changes do you think could be made that would improve the situation without destabilizing an already shaky economy?  Here's a book I read recently that really changed the way I think about economic policy, and it might be a good reference for such a discussion"
+____
+
+But alas, I didn't say that.  And maybe even that would have been taken offensively.  So, my link to the book was taken as an insult.  Hey, no big deal, just apologize and explain yourself, and all will be good.  My response started with:
+
+____
+It wasn't intended as an insult. I discovered this book this year, and I found it very enlightening. It changed my viewpoint on a LOT of misconceptions I had about how economic policy worked.
+
+
+The "one lesson" is: "The art of economics consists in looking not merely at the immediate but at the longer effects of any act or policy; it consists in tracing the consequences of that policy not merely for one group but for all groups."
+
+
+How that actually applies to various real-world problems is quite interesting, and the author explores that through the rest of the book. You can download the book in PDF form for free here: http://www.hacer.org/pdf/Hazlitt00.pdf
+____
+
+== Descent
+
+This wasn't how I ended my comment, though.  It was late, I'm tired, and I'm not thinking rationally.  My annoyance with the "meme wars" in my feed has set me in a bad mood.  My (broken) thought process at this point was: "Here's someone who is spreading memes that are undermining the public discourse on important issues, and they don't even want to have an informed opinion on things."  So, in an attempt to make my point, I added the text below. In doing so, I completely undermined everything I was trying to accomplish:
+
+____
+<snarky>
+
+Don't read it, though. You clearly know everything there is to know about economic policy, so there's no point in wasting time trying to broaden your knowledge. Just go out there and fight "the man" with your memes. I looking forward to the next election when Canada elects our Populist government with our home-born equivalent of Trump thanks to the inflammatory meme, righteous indignance and content-free arguments that social media enables.
+
+</snarky>
+
+It is my hope that one day, society will reward well researched, analyzed and presented arguments on social media. I don't have much faith, but "Rebellions are built on hope", so I'm trying to stay optimistic.
+____
+
+== Revelation
+
+And that's when it hit me... The meme trolls (the creators, not the people they use) dragged me down to their level and beat me with experience.  They _knew_ that by appealing to our frustration, anger, fear and hate through their inflammatory messages that they could manipulate us and control the conversation.  And they had beaten me.  They used my own frustration against me, and made me turn my friend against me.  If I had *anything* of value to say, it was never going to be listened to, now.  I had alienated my friend from me, and from my viewpoint on important matters.  This person may never read that book, because it's attached to the opinions of an arrogant jerk.  Those are my words, not theirs.  Actually, their words were:
+
+____
+I never once proclaimed that I knew everything. However I am very educated on the matter. I approach situations with an open mind before I form my opinions.
+
+All I can say right now is 'wow'. You and I have know each other a long time, and I wouldn't ever say a fraction of what you just said to me to you. Snarky in your words. I call it condescending superiority complex you know everything and want people to view things the same way as you.
+
+My page. My opinion. An educated one. If you don't like it, please unfriend me.
+
+And not that I have to justify myself to anyone, I will here. I read books. I read articles written by different sides. I am very informed, thank you very much.
+____
+
+== Pause.  Reflect.
+
+This is where I hit the *Emergency Stop* button.  I probably should have hit it 3 floors earlier in the descent, but I was tired, and the part of my brain responsible for discipline had apparently already gone to sleep.
+
+My realization that I had just exhibited the very behaviour I challenge others on bothered me.  More than that, I had attacked someone's character and behaved disrespectfully toward them.  This is not me.  Sure, I get passionate about things, but being "snarky" and disrespectful in social media is not who I want to be.
+
+So I took a break.  I posted one more comment, then resolved not to say anything more until I had processed things:
+
+____
+I'm sorry for taking out my frustration on you. My Facebook feed was full of memes and rhetoric today and no facts. Just inflammatory comments that support populist agendas. I guess it got to me, and my snark directed at you was really a result of my frustration with the way that people just share a sound bite, a meme, or other social media thing that supports their opinion without actually thinking about it, presenting facts, analyzing the information, and engaging in civil discourse about it.
+
+I'm going to give myself a time-out from Facebook now, because I have clearly lost my own perspective today.
+____
+
+An admission of guilt, partially negated by an attempt to justify my actions.  Not even close to an apology.
+
+== Apology
+
+I thought for a long time about this.  What did I really want to say?  At this point, the original disagreement had fallen into insignificance in comparison to the new one I had created.  The only thing I needed to do was to apologize sincerely and unconditionally.  The next day, I left the following comment on the thread:
+
+____
+I wanted to take a little time to think about what I wanted to say about my comments on this post. It has consumed a great deal of my thought the past 24 hours, and I think I have figured out what I want to say about them.
+
+I am sorry. I was disrespectful toward you in my comments and it was neither fair, nor appropriate. My words were an attack on your character that don't represent you, nor how I feel about you and I am embarrassed by them. I would ask your forgiveness, but do not think I deserve it.
+
+I exhibited the very behaviour that I try to convince others not to do online. I am still trying to figure out how I allowed myself to get upset enough to lash out in frustration at someone I respect.
+____
+
+My friend publicly accepted my apology, but the impact this incident has made will last a long time.
+
+== Conclusion
+
+This whole situation was a result of me forgetting to live the lesson I learned from my favourite parable which I have included below, in case you've never seen it before.  The moral is one that I learned as a teenager, and one that is very important to me.  My recent failure in adhering to it is a lesson to me to always work hard at being the person I want to be.
+
+
+.Nails in the Fence
+[quote, Author Unknown, https://luckypennylayne.com/2012/05/08/nails-in-the-fence/]
+____
+
+There once was a little boy who had a bad temper. His father gave him a bag of nails and told him that every time he lost his temper, he must hammer a nail into the back of the fence.
+
+The first day the boy had driven 37 nails into the fence. Over the next few weeks, as he learned to control his anger, the number of nails hammered daily gradually dwindled down. He discovered it was easier to hold his temper than to drive those nails into the fence.
+
+Finally the day came when the boy didn’t lose his temper at all. He told his father about it and the father suggested that the boy now pull out one nail for each day that he was able to hold his temper. The days passed and the young boy was finally able to tell his father that all the nails were gone.
+
+The father took his son by the hand and led him to the fence. He said, “You have done well, my son, but look at the holes in the fence. The fence will never be the same. When you say things in anger, they leave a scar just like this one. You can put a knife in a man and draw it out. It won’t matter how many times you say I’m sorry, the wound is still there.”
+
+The little boy then understood how powerful his words were. He looked up at his father and said, “I hope you can forgive me father for the holes I put in you.”
+
+“Of course I can,” said the father.
+____
+
