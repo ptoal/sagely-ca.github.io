@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sagely Go... | Jekyll and Asciidoc</title>
+    <meta name="description" content="Motivation for using Jekyll and Asciidoc with Github Organization Pages for a blog">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="canonical" href="http://sagely.ca/2016/12/Jekyll-and-AsciiDoc">
+    <link rel="alternate" type="application/rss+xml" title="Sagely Go..." href="http://sagely.ca/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/sage905">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url('/img/feature-puzzle.jpg');">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/sage905">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href="author/sage905">Sage905</a> in <a href='/category/coding'>Coding</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i> 5 minutes
+            </p>
+            
+            <p class="meta">
+                <i class="fa fa-tags" ></i> jekyll, asciidoc, github, travis, and blog
+            </p>
+            
+
+            <h1>Jekyll and Asciidoc</h1>
+
+            <div class="sect1">
+<h2 id="motivation">Motivation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I wished to create a blog that would be easy enough to maintain that I would
+ actually take the time to contribute to it.  In order for that to happen,
+ I decided that it would require the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Static page generation (no backend DB&#8217;s, no CMS, etc)</p>
+</li>
+<li>
+<p>Editable from a plain text editor anywhere. (Content is King)</p>
+</li>
+<li>
+<p>Checked into version control</p>
+</li>
+<li>
+<p>Easily published automatically after a commit.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This has led me, after much musing, to a combination of Jekyll, Asciidoc, and
+GitHub Pages.  The blog you see before you today is a result of those choices.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="git">Git</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://git-scm.com/">Git</a> is my VCS of choice, and has been for almost a decade.
+Pretty much a no-brainer.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="github_pages">Github Pages</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I decided that I would use <a href="https://pages.github.com/">Github Pages</a> for hosting.
+The pro&#8217;s for this choice were:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Free</p>
+</li>
+<li>
+<p>Static</p>
+</li>
+<li>
+<p>Long-lasting</p>
+</li>
+<li>
+<p>Extremely low maintenance</p>
+</li>
+<li>
+<p>I already have a Github account</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>I have, over the years, had web sites which were maintained with Django, Wordpress,
+and other back-ends, but every one of them falls behind in security patches,
+plugin versions, etc.  I wanted something that I could leave for months at a time,
+if necessary, and then just pick up my text editor, and publish, without having
+to worry about managing any code.  Github Pages is always on, and I don&#8217;t need
+to manage anything except DNS records, and my Git repository.</p>
+</div>
+<div class="paragraph">
+<p>Nice.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="jekyll">Jekyll</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This decision was borne out of the Github Pages decision.  <a href="https://jekyllrb.com/">Jekyll</a>
+is a static site generator written in Ruby, and supported by Github Pages natively.</p>
+</div>
+<div class="paragraph">
+<p>Unfortunately my next decision, to use Asciidoc, required that I not use the built-in
+integration.  Not to worry, though.  I found a workaround that still meets my goal
+to have automatic publishing based on a <code>git push</code>, without requiring any of my
+own infrastructure.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="asciidoc">Asciidoc</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is where I stray from the beaten path.  Many people like to use Markdown
+(or one of it&#8217;s patchwork offspring).  I have nothing against Markdown, execpt
+for the fact that there really isn&#8217;t <em>a</em> markdown. <a href="http://commonmark.org/">CommonMark</a>
+is promising, but not widely supported.  Also, it doesn&#8217;t have nearly the power
+of <a href="http://asciidoctor.org/docs/what-is-asciidoc/">Asciidoc</a> for other tasks,
+like writing comprehensive technical documentation, one of my other use-cases.
+One of the drawbacks to learning a text-based markup language like Markdown,
+ReStructured Text, and others is that each dialect is similar enough to be
+stored in the same area of the brain, but has enough differences that they often
+get muddled up (in my head, anyway). So you end up using a Markdown idiom
+when writing ReST, etc.</p>
+</div>
+<div class="paragraph">
+<p>By deciding on one language to rule them all, I am forsaking all others (not
+really, since other people still use them, and I don&#8217;t live in my own world).
+At least, I am hopeful that by focusing on Asciidoc as my primary dialect, I will
+not make as many mistakes when I am using it.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="travis">Travis</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As I chose Asciidoc, I could not use the Github integration for Jekyll, as they
+don&#8217;t support the <a href="https://github.com/asciidoctor/jekyll-asciidoc">Asciidoc plugin</a>.
+I&#8217;m not sure why, and there are a number of
+people who, I am sure, have asked them to reconsider, but for now, that means
+that I need an external way of building my site.  Fortunately, there are some
+great tutorials on how to use <a href="https://travis-ci.org">Travis</a> to execute builds
+that are triggered by Github Hooks.  The one I followed is
+<a href="https://eshepelyuk.github.io/2014/10/28/automate-github-pages-travisci.html">this one</a>
+by Evgeny Shepelyuk.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="putting_it_all_together">Putting it all together</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>What the workflow looks like when all this is glued together is:</p>
+</div>
+<div class="paragraph">
+<p>Clone Github Repo &#8594; Edit in IntelliJ IDEA (or whatever I have handy) &#8594;
+Push to Github &#8594; Hook fired to Travis &#8594; Travis executes the Jekyll build and
+pushes to the Github master repo &#8594; Profit.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="conclusion">Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I will be documenting this process in more detail, for those who would like to
+replicate my setup.  For now, however, there are a great many tutorials online
+that can talk about the individual steps.</p>
+</div>
+<div class="paragraph">
+<p>Also, I didn&#8217;t discuss anything about themes or artwork.  That&#8217;s probably an
+entire topic on its own.</p>
+</div>
+<div class="paragraph">
+<p>Until next time&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>-Sage</p>
+</div>
+</div>
+</div>
+
+
+            
+            <div id="disqus_thread"></div>
+            <script>
+
+                /**
+                 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                var disqus_config = function () {
+                    this.page.url = "http://sagely.ca/2016/12/Jekyll-and-AsciiDoc";  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = "/2016/12/Jekyll and AsciiDoc"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+
+                (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = '//sagely.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+            
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/sage.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Dec 31, 2016</span></p>
+                <p><a href="author/sage905">Sage905</a> in <a href='/category/coding'>Coding</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/coding'>Coding</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</p>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://sagely.ca/2016/12/Jekyll-and-AsciiDoc"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://sagely.ca/2016/12/Jekyll-and-AsciiDoc"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:?body=http://sagely.ca/2016/12/Jekyll-and-AsciiDoc"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+        <div class="row read-another-section">
+    
+        
+        <a href="/2017/01/Social_Notworking"><div class="col-sm-6 col-md-2 no-gutter read-another-container">
+            <div class="overlay"></div>
+            <img src='/img/recommend-wolf.jpg'>
+            <h3 class="read-another">Social Notworking</h3>
+        </div></a>
+        
+    
+        
+        <a href="/2017/01/Ansible_to_Manage_Personal_Servers"><div class="col-sm-6 col-md-2 no-gutter read-another-container">
+            <div class="overlay"></div>
+            <img src='/img/recommend-laptop.jpg'>
+            <h3 class="read-another">Ansible to Manage Personal Servers</h3>
+        </div></a>
+        
+    
+        
+        <a href="/2017/01/Politics"><div class="col-sm-6 col-md-2 no-gutter read-another-container">
+            <div class="overlay"></div>
+            <img src='/img/recommend-fire.jpg'>
+            <h3 class="read-another">My Politics</h3>
+        </div></a>
+        
+    
+        
+        <a href="/2016/06/What-is-Sagely"><div class="col-sm-6 col-md-2 no-gutter read-another-container">
+            <div class="overlay"></div>
+            <img src='/img/recommend-wolf.jpg'>
+            <h3 class="read-another">What is Sagely?</h3>
+        </div></a>
+        
+    
+</div>
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-89685712-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+  </body>
+
+</html>

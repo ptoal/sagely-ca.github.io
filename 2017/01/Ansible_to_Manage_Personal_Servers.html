@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sagely Go... | Ansible to Manage Personal Servers</title>
+    <meta name="description" content="Decision-making process for using Ansible to manage a number of personal servers">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="canonical" href="http://sagely.ca/2017/01/Ansible_to_Manage_Personal_Servers">
+    <link rel="alternate" type="application/rss+xml" title="Sagely Go..." href="http://sagely.ca/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/sage905">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url('/img/feature-domore.jpg');">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/sage905">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href="author/sage905">Sage905</a> in <a href='/category/coding'>Coding</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i> 5 minutes
+            </p>
+            
+            <p class="meta">
+                <i class="fa fa-tags" ></i> ansible, automation, servers, and python
+            </p>
+            
+
+            <h1>Ansible to Manage Personal Servers</h1>
+
+            <div class="sect1">
+<h2 id="background">Background</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I have a lot of hobbies.  In the Venn diagram of my hobbies, the circle labelled
+"Nerdy" is disproportionately large.  What that means, for me, is that I have a
+large number of computing systems to manage.  I am a principal member of the
+<a href="http://pwn9.com">Pwn9.com</a> gaming community,  I have a home NAS that runs a number
+of services, such as my <a href="http://sagetv.com/">SageTV</a> installation, a
+<a href="http://dirvish.org">Dirvish</a> backup server (which backs up all the other servers)
+A <a href="https://ci.sagely.ca">Jenkins CI server</a>, A number of web servers, Minecraft
+servers, and a handful of other things.</p>
+</div>
+<div class="paragraph">
+<p>Managing all of these as one-off&#8217;s is cumbersome.  Sometimes, I don&#8217;t touch some
+of these services for months, or even a year.  Others, I&#8217;m messing with daily.
+I needed a system to handle Administration of the services, without adding too
+much to my workload.  My other motivation was the fact that I wanted to become
+more familiar with Server Automation options, which have developed significantly
+since I was a Sysadmin in the 90&#8217;s using <a href="http://cfengine.com">CFEngine</a>.  (Kudos
+to the CFEngine folks for still going strong!)</p>
+</div>
+<div class="paragraph">
+<p>Initially, I spent a lot of time working with the Open Source version of
+<a href="https://puppet.com/">Puppet</a>.  It looks like a great tool for large-scale
+deployments, but trying to run Puppet "masterless" just proved too difficult in
+my environment.  I wanted something that didn&#8217;t require a server to be 24/7
+accessible.  I tried running the Puppet Master on my <a href="http://freenas.org/">FreeNAS</a>
+system in a jail, but I just kept running into obstacles.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>He said we wouldn&#8217;t get it. He said we wouldn&#8217;t get the treasure we seek
+on account of our obstacles.</p>
+</div>
+<div class="paragraph">
+<p>&#8201;&#8212;&#8201;Pete, O Brother, Where Art Thou?</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>I looked briefly at Chef, but it seemed more like Puppet, in terms of required
+infrastructure.  Ansible got my attention not just because it was written in
+Python, one of my preferred languages.  It was a lot lighter-weight, it didn&#8217;t
+require a centralized trusted server, and it had a lot fewer rules.  So all of
+the ad-hoc tasks I need to run are no problem.  In fact, Ansible encourages me
+to keep working in a very ad-hoc way, but allows me to add automation and process
+to the things I was already doing.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setup">Setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I spent a lot of time just playing around with Ansible, and becoming familiar
+with it&#8217;s philosophy, and function.  As you would expect, the <a href="https://docs.ansible.com/">Ansible Docs</a>
+are a great place to start.  I also heavily rely on the Ansible docsets in <a href="https://kapeli.com/dash">Dash.app</a>
+which are indispensable while learning the ins and outs, and in day to day use.</p>
+</div>
+<div class="sect2">
+<h3 id="installation">Installation</h3>
+<div class="paragraph">
+<p>I decided to use the <a href="http://asciidoctor.org/docs/">development version</a>, so I
+could get all the latest and greatest modules, etc.  Since nothing in my
+infrastructure is particularly critical, I figured I could handle any bugs without
+much issue. (Incidentally, I haven&#8217;t found any in almost a year of using the
+dev version.) Instructions below are taken from the Ansible Docs.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="shell">$ git clone git://github.com/ansible/ansible.git --recursive
+$ cd ./ansible
+
+# Bash environment setup (adapt if you are using a different shell)
+$ source ./hacking/env-setup
+
+# Make sure python dependencies are installed
+$ sudo pip install paramiko PyYAML Jinja2 httplib2 six</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That should install ansible on your system.  We can test by setting up our local
+host in a hosts file, and running the ansible "ping" module:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="shell"># If you were in the ansible checkout directory, go back up to the main dir.
+$ cd ..
+
+$ echo &quot;127.0.0.1&quot; &gt; ansible_hosts
+$ ansible -i ansible_hosts -m ping all --ask-pass
+SSH password:
+127.0.0.1 | SUCCESS =&gt; {
+    &quot;changed&quot;: false,
+    &quot;ping&quot;: &quot;pong&quot;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The "SUCCESS" message indicates that Ansible can talk to our host (127.0.0.1) via
+ssh, successfully logged in as the current user, and the password we provided at
+the "SSH password:" prompt was correct.</p>
+</div>
+<div class="paragraph">
+<p>This will give you a basic ansible setup to start hacking on.  I have set up a
+git repo with a copy of my setup, which you can use to follow along, if you wish.
+You can get it by running the following command:</p>
+</div>
+<div class="paragraph">
+<p><code>git clone --recursive git://github.com/ptoal/ansible-example</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is important to include the "--recursive" option to get a copy of the
+ansible repo.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>I will create Git "Tags" for each tutorial post in this blog.  The first tag,
+matching this post, is called "Intro".  It will give you a directory with a single
+file, ansible_hosts, with one host entry (127.0.0.1).  Additionally, with the --recurse
+flag, it will clone the ansible repo into an 'ansible' subdirectory.</p>
+</div>
+<div class="paragraph">
+<p>In the next post, I&#8217;ll talk about how I use <a href="http://vagrantup.com">Vagrant</a> and
+<a href="http://virtualbox.org">VirtualBox</a> to mock up all of my servers before I actually
+deploy them to a hosting provider.  This combination allows you to iterate over
+your ansible changes quickly, allowing you to identify errors in your ansible setup
+before pushing out to a production server.</p>
+</div>
+<div class="paragraph">
+<p>Until next time.</p>
+</div>
+<div class="paragraph">
+<p>-Sage</p>
+</div>
+</div>
+</div>
+</div>
+
+
+            
+            <div id="disqus_thread"></div>
+            <script>
+
+                /**
+                 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                var disqus_config = function () {
+                    this.page.url = "http://sagely.ca/2017/01/Ansible_to_Manage_Personal_Servers";  // Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = "/2017/01/Ansible_to_Manage_Personal_Servers"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+
+                (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = '//sagely.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+            
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/sage.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Jan 2, 2017</span></p>
+                <p><a href="author/sage905">Sage905</a> in <a href='/category/coding'>Coding</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/coding'>Coding</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</p>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://sagely.ca/2017/01/Ansible_to_Manage_Personal_Servers"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://sagely.ca/2017/01/Ansible_to_Manage_Personal_Servers"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:?body=http://sagely.ca/2017/01/Ansible_to_Manage_Personal_Servers"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+        <div class="row read-another-section">
+    
+        
+        <a href="/2017/01/Social_Notworking"><div class="col-sm-6 col-md-2 no-gutter read-another-container">
+            <div class="overlay"></div>
+            <img src='/img/recommend-wolf.jpg'>
+            <h3 class="read-another">Social Notworking</h3>
+        </div></a>
+        
+    
+        
+        <a href="/2016/12/Jekyll-and-AsciiDoc"><div class="col-sm-6 col-md-2 no-gutter read-another-container">
+            <div class="overlay"></div>
+            <img src='/img/recommend-laptop.jpg'>
+            <h3 class="read-another">Jekyll and Asciidoc</h3>
+        </div></a>
+        
+    
+        
+        <a href="/2017/01/Politics"><div class="col-sm-6 col-md-2 no-gutter read-another-container">
+            <div class="overlay"></div>
+            <img src='/img/recommend-fire.jpg'>
+            <h3 class="read-another">My Politics</h3>
+        </div></a>
+        
+    
+        
+        <a href="/2016/06/What-is-Sagely"><div class="col-sm-6 col-md-2 no-gutter read-another-container">
+            <div class="overlay"></div>
+            <img src='/img/recommend-wolf.jpg'>
+            <h3 class="read-another">What is Sagely?</h3>
+        </div></a>
+        
+    
+</div>
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-89685712-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+  </body>
+
+</html>
