@@ -7573,11 +7573,15 @@ ol {
     .sidebar {
       width: 464px; } }
   .sidebar .site-info {
-    padding: 90px 15px 0 15px;
+    padding: 0 20px;
+    position: absolute;
+    bottom: 20px;
     color: #fafafa; }
     @media (min-width: 768px) {
       .sidebar .site-info {
-        padding: 180px 100px 0 100px; } }
+        padding: 0 20px;
+        position: absolute;
+        bottom: 20px; } }
     @media (min-width: 992px) {
       .sidebar .site-info {
         padding: 0 20px;
