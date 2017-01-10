@@ -53,7 +53,7 @@ defaults:
       path: ""
     values:
       author_name: Sage905
-      author_url: author/sage905
+      author_url: /author/sage905
       author_avatar: sage
       show_avatar: true
       show_related_posts: true

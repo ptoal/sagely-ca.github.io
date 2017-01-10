@@ -1,7 +1,7 @@
 = About
 :page-feature_image: feature-thought
 :page-layout: page
-:page-permalink: /about/
+:page-permalink: /about
 
 Sagely is the way I try to approach challenges in life.  That's not to say that
 I consider myself particularly wise, but that I aspire to approach things the way

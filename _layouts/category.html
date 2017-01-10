@@ -16,11 +16,11 @@ layout: with-sidebar
             <p>{{ post.excerpt | truncatewords: 28 }}</p>
 
         <p class="meta">
-            <a href="{{ post.author_url | prepend: site.baseurl }}">
+            <a href="{{ post.author_url }}">
                 {{ post.author_name | capitalize }}</a> in
             <a href='{{ "/category/" | append: post.categories.first | prepend: site.baseurl }}'>
                 {{ post.categories.first | capitalize}}</a>
-            <i class="link-spacer"></i> <i class="fa fa-bookmark"></i> {{ post.read_time }} minutes
+            <i class="link-spacer"></i>
         </p>
 
         </div>
