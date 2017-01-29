@@ -6,8 +6,8 @@
 </description>
     <link>http://sagely.ca/</link>
     <atom:link href="http://sagely.ca/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 28 Jan 2017 20:32:20 -0500</pubDate>
-    <lastBuildDate>Sat, 28 Jan 2017 20:32:20 -0500</lastBuildDate>
+    <pubDate>Sat, 28 Jan 2017 20:35:51 -0500</pubDate>
+    <lastBuildDate>Sat, 28 Jan 2017 20:35:51 -0500</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -15,6 +15,9 @@
         <description>&lt;div class=&quot;sect1&quot;&gt;
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This is probably not of interest to most people, but could be of interest to anyone who is interested in how I have set up our development environment.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;This tutorial should help you get started developing on the Pwn9 website repository.  It gives you the basic details on how to get your environment set up.  It does &lt;strong&gt;not&lt;/strong&gt; tell you anything about how to actually work with the code base.  That will come in another tutorial. :)&lt;/p&gt;
 &lt;/div&gt;
@@ -102,14 +105,16 @@ C:\Users\sage&amp;gt;npm install&lt;/pre&gt;
 
 This will take quite some time to download all of the required modules and install them.  When this step is complete, you can start work on development.
 
-== Committing changes.&lt;/pre&gt;
+== Committing changes
+
+** To Be Completed **&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
         <pubDate>Sat, 28 Jan 2017 00:00:00 -0500</pubDate>
-        <link>http://sagely.ca/2017/01/pwn9site-tutorial.</link>
-        <guid isPermaLink="true">http://sagely.ca/2017/01/pwn9site-tutorial.</guid>
+        <link>http://sagely.ca/2017/01/pwn9site-tutorial</link>
+        <guid isPermaLink="true">http://sagely.ca/2017/01/pwn9site-tutorial</guid>
         
         <category>nodejs ansible git windows pwn9</category>
         
