@@ -1,0 +1,65 @@
+= Tutorial for working with the Pwn9 Site Repo
+:page-layout: post
+:page-categories: [ coding ]
+:page-square_related: recommend-laptop
+:page-feature_image: feature-puzzle
+:page-read_time: 5
+:page-tags: [ nodejs ansible git windows pwn9 ]
+:page-excerpt: A tutorial for Pwn9 staff in how to work with the Pwn9 Site workflow
+:imagesdir: /img/2017/01
+
+== Introduction
+
+This tutorial should help you get started developing on the Pwn9 website repository.  It gives you the basic details on how to get your environment set up.  It does *not* tell you anything about how to actually work with the code base.  That will come in another tutorial. :)
+
+Sage created a screencast of the process, which you can watch below:
+
+video::kvrIG6E7N84[youtube, 640,480]
+
+== Setup for Windows 10
+
+To begin, we'll need to install some tools.  Go and grab https://git-scm.com/downloads[Git] and install it.  (The default settings should be fine).  Additionally, you will want to install http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html[Putty and it's tools], if you haven't got them already.
+
+In order to clone the private repository, you will need to use an SSH Key.  If you have previously provided one to Sage, it will already be set up for your use.  You will need to copy your private key into the correct place for Git to be able to make use of it.
+
+Finally, to run the server locally for testing, you will need to install https://nodejs.org/[node.js].  The exact version required will be specified in the `package.json` file in the repository root.  At the time of this writing, we are using v6.9.4 LTS.  As with the other required software, the default installation options are fine.
+
+== Generating an SSH Key
+
+Let's walk through the creation of your ssh key, if you don't have one, or lost yours.  If you have one, skip to the next section, below.  First, open the "PuTTYgen" application, and generate a new SSH-2 RSA key by clicking the "Generate" button.  You will need to move your mouse around a bunch to generate some randomness.  When it is done, you should see something like this:
+
+image::putty_key.png[caption="PuTTYgen output", width=50%, align=center]
+
+You should then enter a passphrase, to protect your key.  If someone gets a hold of your keyfile, and there's no passphrase, they can use the key to impersonate you, and do BadThings(tm).  Once you've added a passphrase, save the private key somewhere you'll be able to find it again.
+
+== Exporting your SSH Private Key to use with Git
+
+Open your key in the PuTTYgen tool.  Go to Conversions->Export OpenSSH Key.  Save your private key in the C:\Users\<yourusername>\.ssh\ directory with a filename of: "id_rsa".  (NOTE: If you already have an id_rsa here, you probably don't want to overwrite it.  If you don't know what to do at this point, go to Chinatown.  Ask for Caine.  He will help.
+
+== Cloning the Repository
+
+To clone the repository, you launch the GitUI, and put the source repository name `git@pwn9.sagley.ca:pwn9site.git` in the Source box, and You select a destination location on your computer.  Put it on your desktop, or your documents folder, or in C:\, it doesn't matter.
+
+To make changes, you'll want to check out the `develop` branch as a new feature branch.  Do this in the Git Bash shell by cd'ing to the folder you checked the code out into, and typing: `git checkout -b feature/<yourfeaturename> origin/develop`.  This will create a new branch, based on the latest development branch.
+
+== Setting up Node modules
+
+After you have checked out the code repository, you will need to downlod/build the modules required for the application to run.  You can do this either in the Node.js Command Prompt, or a regular Command Prompt.  cd to the directory where the application was cloned, and run the npm install command:
+
+In a 'cmd' shell:
+----
+C:\Users\sage>cd C:\Users\sage\Desktop\pwn9Site
+C:\Users\sage>npm install
+----
+
+In a 'bash' shell:
+----
+> cd /c/Users/sage/Desktop/pwn9site
+> npm install
+
+This will take quite some time to download all of the required modules and install them.  When this step is complete, you can start work on development.
+
+== Committing changes.
+
+
+ 

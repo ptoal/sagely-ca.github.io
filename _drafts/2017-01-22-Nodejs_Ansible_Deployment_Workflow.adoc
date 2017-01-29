@@ -1,0 +1,66 @@
+= Node.js Ansible Deployment Workflow
+:page-layout: post
+:page-categories: [ coding ]
+:page-square_related: recommend-laptop
+:page-feature_image: feature-puzzle
+:page-read_time: 5
+:page-tags: [ nodejs ansible deployment pm2 pwn9 git githooks nginx ]
+:page-excerpt: An overview of the deployment workflow for Pwn9's node.js based website.  From development to Production
+
+== Background
+
+Pwn9.com's website ran on Drupal for years.  Recently, the backend just stopped responding to requests, and after spending about 30 minutes trying to figure out what was hosed, I gave up.  We had long been intending to replace the Drupal site with something else, and this seemed like a good enough motivation to do it.
+
+Both Tremor and I have become interested in node.js, and we wanted to incorporate some webhooks, RESTful interfaces, etc.  You know... The stuff all the k00lk1ds are using these days.
+
+What follows is a description of the development -> production workflow that I've set up.  There may very well be better ways of doing this, but this was the one I ended up with, because it appeals to my sensibilities.  (Tremor probably disagrees) :)  Well, tough bananas.  I'm the one actually putting the time into it. :)
+
+== Overview
+
+The workflow relies on the following components:
+
+ - Development Server from CloudAtCost
+ - Production Server on Linode
+ - Ansible for automation
+ - Node.js & NPM for application
+ - PM2 to manage the Node.js App
+ - Nginx for reverse-proxy to the nodejs app
+ - Git & Gitolite for version control / repo
+
+At a high level, the workflow will look like this:
+
+ 1. Clone or pull from the private gitolite-based repository
+ 2. Checkout dev branch.
+ 3. Hack on the code.  Test.  Repeat until it's shippable.
+ 4. Commit changes and push dev branch back to gitolite repo.
+ 5. A githook will fire, notifying the CI machine to build/test the code.
+ 6. If the tests pass, the code will automatically be promoted to the staging server at pwn9.sagely.ca by executing an ansible playbook against the development environment.
+ 7. In theory, additional production-readiness testing can be done against the staging server.
+ 8. Once the dev is confident that the changes are ready for production, the dev requests that a Manager promotes it to production (at the moment, that is just me.  Maybe tremor)
+ 9. Promotion to production involves running an ansible playbook against the production environment.
+
+We are going to use a similar Git model to this one: http://nvie.com/posts/a-successful-git-branching-model/
+
+To simplify the automated build system, we are going to use the following nomenclature::
+
+ master::
+   Release only branch.  ALL changes that go in here will be releases and automatically pushed to production. (eek!)  Nothing gets into here before rigorous testing.
+ fix/<bugid>::
+  For fixes to specific bugs.  Where should we track the issues?  Trello?  These branches will be based off the `master` branch and will be committed to `master` as well as `develop`
+
+ develop::
+   This branch is where all new features and updates will be merged into.  All changes pushed to the repo in one of the branches below will automatically be built and tested by Jenkins, and if the build passes will be auto-merged into this branch.
+ feature/<featurename>::
+   For big features, eg: new authentication, new game API, etc.  These branches will be made off the `develop` branch, and will be automatically be integrated when builds are pushed and passed.
+ update/<name>::
+   For smaller updates, eg: to page styling, layout, etc.  These branches will be made off the `develop` branch, and will be automatically be integrated when builds are pushed and passed.
+
+So, if, for example, you wish to add a new feature, you would:
+
+[source,shell]
+----
+$ git checkout -b feature/awesome-new-feature develop
+# This creates a new branch 'feature/awesome-new-feature' based on the 'develop' branch
+
+
+
