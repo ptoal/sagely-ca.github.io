@@ -10,6 +10,8 @@
 
 == Introduction
 
+This is probably not of interest to most people, but could be of interest to anyone who is interested in how I have set up our development environment.
+
 This tutorial should help you get started developing on the Pwn9 website repository.  It gives you the basic details on how to get your environment set up.  It does *not* tell you anything about how to actually work with the code base.  That will come in another tutorial. :)
 
 Sage created a screencast of the process, which you can watch below:
@@ -59,7 +61,10 @@ In a 'bash' shell:
 
 This will take quite some time to download all of the required modules and install them.  When this step is complete, you can start work on development.
 
-== Committing changes.
+== Committing changes
+
+** To Be Completed **
+
 
 
  
