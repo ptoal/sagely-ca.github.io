@@ -37,7 +37,7 @@
 </noscript>
 <!-- end no script -->
 
-    <header class="hero-image" style="background-image: url('/img/feature-puzzle.jpg');">
+    <header class="hero-image" style="background-image: url('/img/feature-tools.jpg');">
     <span class="menu-trigger animated fadeInDown">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -82,7 +82,7 @@
 <p>This tutorial should help you get started developing on the Pwn9 website repository.  It gives you the basic details on how to get your environment set up.  It does <strong>not</strong> tell you anything about how to actually work with the code base.  That will come in another tutorial. :)</p>
 </div>
 <div class="paragraph">
-<p>Sage created a screencast of the process, which you can watch below:</p>
+<p>I created a screencast of the process, which you can watch below:</p>
 </div>
 <div class="videoblock">
 <div class="content">
@@ -96,6 +96,18 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>To begin, we&#8217;ll need to install some tools.  Go and grab <a href="https://git-scm.com/downloads">Git</a> and install it.  (The default settings should be fine).  Additionally, you will want to install <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty and it&#8217;s tools</a>, if you haven&#8217;t got them already.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Tremor has suggested that the <a href="https://www.sourcetreeapp.com/">Sourcefire</a> client is more user-friendly for Windows users.  I don&#8217;t have it in my video tutorial, but you can use that client if you wish, instead.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>In order to clone the private repository, you will need to use an SSH Key.  If you have previously provided one to Sage, it will already be set up for your use.  You will need to copy your private key into the correct place for Git to be able to make use of it.</p>
@@ -113,7 +125,7 @@
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="/img/2017/01/putty_key.png" alt="putty key" width="50%">
+<img src="/img/post/putty_key.png" alt="putty key" width="50%">
 </div>
 </div>
 <div class="paragraph">
@@ -163,12 +175,43 @@ C:\Users\sage&gt;npm install</pre>
 <pre>&gt; cd /c/Users/sage/Desktop/pwn9site
 &gt; npm install
 
-This will take quite some time to download all of the required modules and install them.  When this step is complete, you can start work on development.
-
-== Committing changes
-
-** To Be Completed **</pre>
+This will take quite some time to download all of the required modules and install them.  When this step is complete, you can start work on development.</pre>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="building_the_application">Building the Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Thanks to the very nice tutorials done by James Shore on his <a href="http://letscodejavascript.com/">Let&#8217;s Code Javascript</a> site, I decided to use his <a href="https://github.com/jamesshore/automatopia">automatopia</a> skeleton to set up this site.  What this provides is a good starting point for a basic workflow, test framework, and build system without locking into anything.</p>
+</div>
+<div class="paragraph">
+<p>The build tool is called <a href="http://jakejs.com/">jake</a>, and it is roughly equivalent to "make" or "rake" (but not "shake" and "bake").  Tasks are defined in javascript, and you can get a list of them by typing <code>./jake.sh -T</code> (unix shell) or <code>jake -T</code> (windows cmd).  You&#8217;ll get a nice list of build tasks, and their descriptions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>jake default               Lint and test
+jake run                   Start server (for manual testing)
+jake clean                 Delete generated files
+jake lint                  Lint everything
+jake karma                 Start Karma server -- run this first
+jake test                  Run tests
+jake build                 Build distribution package
+jake version               Check Node version</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To build the code base, we can run <code>jake build</code>.  Or, we can execute <code>jake run</code>, which will build the code, and start a local web server that you can use to do testing on.  You can reach the server by using your web browser to visit: <a href="http://localhost:5000">http://localhost:5000</a></p>
+</div>
+<div class="paragraph">
+<p>If you&#8217;ve done all the previous steps correctly, you should see the latest development version of the site.</p>
+</div>
+<div class="paragraph">
+<p>The video tutorial will show you how to make a small change and push a commit, but I&#8217;m going to discuss that in the next part of the tutorial, with the whole workflow.</p>
+</div>
+<div class="paragraph">
+<p>See [Part 2 Coming soon!] of the tutorial for more.</p>
 </div>
 </div>
 </div>

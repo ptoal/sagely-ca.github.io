@@ -6,8 +6,8 @@
 </description>
     <link>http://sagely.ca/</link>
     <atom:link href="http://sagely.ca/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 28 Jan 2017 20:35:51 -0500</pubDate>
-    <lastBuildDate>Sat, 28 Jan 2017 20:35:51 -0500</lastBuildDate>
+    <pubDate>Mon, 30 Jan 2017 11:57:59 -0500</pubDate>
+    <lastBuildDate>Mon, 30 Jan 2017 11:57:59 -0500</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -22,7 +22,7 @@
 &lt;p&gt;This tutorial should help you get started developing on the Pwn9 website repository.  It gives you the basic details on how to get your environment set up.  It does &lt;strong&gt;not&lt;/strong&gt; tell you anything about how to actually work with the code base.  That will come in another tutorial. :)&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Sage created a screencast of the process, which you can watch below:&lt;/p&gt;
+&lt;p&gt;I created a screencast of the process, which you can watch below:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;videoblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
@@ -36,6 +36,18 @@
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;To begin, we&amp;#8217;ll need to install some tools.  Go and grab &lt;a href=&quot;https://git-scm.com/downloads&quot;&gt;Git&lt;/a&gt; and install it.  (The default settings should be fine).  Additionally, you will want to install &lt;a href=&quot;http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html&quot;&gt;Putty and it&amp;#8217;s tools&lt;/a&gt;, if you haven&amp;#8217;t got them already.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock note&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;i class=&quot;fa icon-note&quot; title=&quot;Note&quot;&gt;&lt;/i&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+Tremor has suggested that the &lt;a href=&quot;https://www.sourcetreeapp.com/&quot;&gt;Sourcefire&lt;/a&gt; client is more user-friendly for Windows users.  I don&amp;#8217;t have it in my video tutorial, but you can use that client if you wish, instead.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;In order to clone the private repository, you will need to use an SSH Key.  If you have previously provided one to Sage, it will already be set up for your use.  You will need to copy your private key into the correct place for Git to be able to make use of it.&lt;/p&gt;
@@ -53,7 +65,7 @@
 &lt;/div&gt;
 &lt;div class=&quot;imageblock&quot; style=&quot;text-align: center&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;/img/2017/01/putty_key.png&quot; alt=&quot;putty key&quot; width=&quot;50%&quot;&gt;
+&lt;img src=&quot;/img/post/putty_key.png&quot; alt=&quot;putty key&quot; width=&quot;50%&quot;&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -103,12 +115,43 @@ C:\Users\sage&amp;gt;npm install&lt;/pre&gt;
 &lt;pre&gt;&amp;gt; cd /c/Users/sage/Desktop/pwn9site
 &amp;gt; npm install
 
-This will take quite some time to download all of the required modules and install them.  When this step is complete, you can start work on development.
-
-== Committing changes
-
-** To Be Completed **&lt;/pre&gt;
+This will take quite some time to download all of the required modules and install them.  When this step is complete, you can start work on development.&lt;/pre&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;building_the_application&quot;&gt;Building the Application&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Thanks to the very nice tutorials done by James Shore on his &lt;a href=&quot;http://letscodejavascript.com/&quot;&gt;Let&amp;#8217;s Code Javascript&lt;/a&gt; site, I decided to use his &lt;a href=&quot;https://github.com/jamesshore/automatopia&quot;&gt;automatopia&lt;/a&gt; skeleton to set up this site.  What this provides is a good starting point for a basic workflow, test framework, and build system without locking into anything.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The build tool is called &lt;a href=&quot;http://jakejs.com/&quot;&gt;jake&lt;/a&gt;, and it is roughly equivalent to &quot;make&quot; or &quot;rake&quot; (but not &quot;shake&quot; and &quot;bake&quot;).  Tasks are defined in javascript, and you can get a list of them by typing &lt;code&gt;./jake.sh -T&lt;/code&gt; (unix shell) or &lt;code&gt;jake -T&lt;/code&gt; (windows cmd).  You&amp;#8217;ll get a nice list of build tasks, and their descriptions:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;jake default               Lint and test
+jake run                   Start server (for manual testing)
+jake clean                 Delete generated files
+jake lint                  Lint everything
+jake karma                 Start Karma server -- run this first
+jake test                  Run tests
+jake build                 Build distribution package
+jake version               Check Node version&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To build the code base, we can run &lt;code&gt;jake build&lt;/code&gt;.  Or, we can execute &lt;code&gt;jake run&lt;/code&gt;, which will build the code, and start a local web server that you can use to do testing on.  You can reach the server by using your web browser to visit: &lt;a href=&quot;http://localhost:5000&quot;&gt;http://localhost:5000&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you&amp;#8217;ve done all the previous steps correctly, you should see the latest development version of the site.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The video tutorial will show you how to make a small change and push a commit, but I&amp;#8217;m going to discuss that in the next part of the tutorial, with the whole workflow.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;See [Part 2 Coming soon!] of the tutorial for more.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;</description>
@@ -169,7 +212,7 @@ I&amp;#8217;m not smarter than your average bear.  I don&amp;#8217;t think that 
 &lt;/div&gt;
 &lt;div id=&quot;fb-post&quot; class=&quot;paragraph&quot;&gt;
 &lt;div class=&quot;title&quot;&gt;Facebook Post&lt;/div&gt;
-&lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;/img/2017/01/Social_Notworking_fbpost.png&quot; alt=&quot;Social Notworking fbpost&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;image&quot;&gt;&lt;img src=&quot;/img/post/Social_Notworking_fbpost.png&quot; alt=&quot;Social Notworking fbpost&quot;&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;The response I got surprised me:&lt;/p&gt;
