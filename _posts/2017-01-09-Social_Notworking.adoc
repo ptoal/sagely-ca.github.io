@@ -27,7 +27,7 @@ What I did next was innocent enough, I thought.  I wanted to broaden the convers
 
 [[fb-post]]
 .Facebook Post
-image:/img{{ page.id }}_fbpost.png[]
+image:post/Social_Notworking_fbpost.png[]
 
 The response I got surprised me:
 

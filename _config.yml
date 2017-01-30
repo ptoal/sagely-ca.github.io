@@ -26,14 +26,15 @@ exclude:
   - vendor
 
 asciidoc: {}
+keep_files: [img]
 asciidoctor:
   base_dir: :docdir
   safe: unsafe
-  imagesdir: img
   attributes:
-    - idseparator=_
-    - source-highlighter=coderay
-    - icons=font
+    imagesdir: /img@
+    idseparator: _
+    source-highlighter: coderay
+    icons: font
 timezone: America/Toronto
 
 #Theme config

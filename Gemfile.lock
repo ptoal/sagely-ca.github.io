@@ -4,6 +4,8 @@ GEM
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
     asciidoctor (1.5.5)
+    asciidoctor-diagram (1.5.4)
+      asciidoctor (~> 1.5.0)
     classifier-reborn (2.1.0)
       fast-stemmer (~> 1.0)
     coderay (1.1.1)
@@ -52,6 +54,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  asciidoctor-diagram (~> 1.5.4)
   classifier-reborn
   coderay
   jekyll

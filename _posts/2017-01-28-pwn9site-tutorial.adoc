@@ -2,11 +2,12 @@
 :page-layout: post
 :page-categories: [ coding ]
 :page-square_related: recommend-laptop
-:page-feature_image: feature-puzzle
-:page-read_time: 5
+:page-feature_image: feature-tools
+:page-read_time: 15
 :page-tags: [ nodejs ansible git windows pwn9 ]
 :page-excerpt: A tutorial for Pwn9 staff in how to work with the Pwn9 Site workflow
-:imagesdir: /img/2017/01
+:imagesdir: /img/post
+:imagesoutdir: {site-destination}/{imagesdir}
 
 == Introduction
 
@@ -14,13 +15,15 @@ This is probably not of interest to most people, but could be of interest to any
 
 This tutorial should help you get started developing on the Pwn9 website repository.  It gives you the basic details on how to get your environment set up.  It does *not* tell you anything about how to actually work with the code base.  That will come in another tutorial. :)
 
-Sage created a screencast of the process, which you can watch below:
+I created a screencast of the process, which you can watch below:
 
 video::kvrIG6E7N84[youtube, 640,480]
 
 == Setup for Windows 10
 
 To begin, we'll need to install some tools.  Go and grab https://git-scm.com/downloads[Git] and install it.  (The default settings should be fine).  Additionally, you will want to install http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html[Putty and it's tools], if you haven't got them already.
+
+NOTE: Tremor has suggested that the https://www.sourcetreeapp.com/[Sourcefire] client is more user-friendly for Windows users.  I don't have it in my video tutorial, but you can use that client if you wish, instead.
 
 In order to clone the private repository, you will need to use an SSH Key.  If you have previously provided one to Sage, it will already be set up for your use.  You will need to copy your private key into the correct place for Git to be able to make use of it.
 
@@ -59,12 +62,30 @@ In a 'bash' shell:
 > cd /c/Users/sage/Desktop/pwn9site
 > npm install
 
-This will take quite some time to download all of the required modules and install them.  When this step is complete, you can start work on development.
+This will take quite some time to download all of the required modules and install them.  When this step is complete, you can start work on development.  
+----
 
-== Committing changes
+== Building the Application
 
-** To Be Completed **
+Thanks to the very nice tutorials done by James Shore on his http://letscodejavascript.com/[Let's Code Javascript] site, I decided to use his https://github.com/jamesshore/automatopia[automatopia] skeleton to set up this site.  What this provides is a good starting point for a basic workflow, test framework, and build system without locking into anything.
 
+The build tool is called http://jakejs.com/[jake], and it is roughly equivalent to "make" or "rake" (but not "shake" and "bake").  Tasks are defined in javascript, and you can get a list of them by typing `./jake.sh -T` (unix shell) or `jake -T` (windows cmd).  You'll get a nice list of build tasks, and their descriptions:
 
+----
+jake default               Lint and test
+jake run                   Start server (for manual testing)
+jake clean                 Delete generated files
+jake lint                  Lint everything
+jake karma                 Start Karma server -- run this first
+jake test                  Run tests
+jake build                 Build distribution package
+jake version               Check Node version
+----
 
- 
+To build the code base, we can run `jake build`.  Or, we can execute `jake run`, which will build the code, and start a local web server that you can use to do testing on.  You can reach the server by using your web browser to visit: http://localhost:5000[http://localhost:5000]
+
+If you've done all the previous steps correctly, you should see the latest development version of the site.
+
+The video tutorial will show you how to make a small change and push a commit, but I'm going to discuss that in the next part of the tutorial, with the whole workflow.
+
+See [Part 2 Coming soon!] of the tutorial for more.
