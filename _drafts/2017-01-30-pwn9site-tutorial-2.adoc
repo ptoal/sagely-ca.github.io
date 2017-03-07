@@ -1,0 +1,12 @@
+= Part 2 - Tutorial for working with the Pwn9 Site Repo
+:page-layout: post
+:page-categories: [ coding ]
+:page-square_related: recommend-laptop
+:page-feature_image: feature-tools
+:page-read_time: 15
+:page-tags: [ nodejs ansible git windows pwn9 ]
+:page-excerpt: Part two of A tutorial for Pwn9 staff in how to work with the Pwn9 Site workflow
+:imagesdir: /img/post
+:imagesoutdir: {site-destination}/{imagesdir}
+
+
