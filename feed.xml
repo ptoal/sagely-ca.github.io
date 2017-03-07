@@ -6,8 +6,8 @@
 </description>
     <link>http://sagely.ca/</link>
     <atom:link href="http://sagely.ca/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 05 Mar 2017 14:15:46 -0500</pubDate>
-    <lastBuildDate>Sun, 05 Mar 2017 14:15:46 -0500</lastBuildDate>
+    <pubDate>Mon, 06 Mar 2017 21:49:07 -0500</pubDate>
+    <lastBuildDate>Mon, 06 Mar 2017 21:49:07 -0500</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -160,6 +160,137 @@ jake version               Check Node version&lt;/pre&gt;
         <guid isPermaLink="true">http://sagely.ca/2017/01/pwn9site-tutorial</guid>
         
         <category>nodejs ansible git windows pwn9</category>
+        
+        
+        <category>coding</category>
+        
+      </item>
+    
+      <item>
+        <title>Node.js Ansible Deployment Workflow</title>
+        <description>&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Pwn9.com&amp;#8217;s website ran on Drupal for years.  Recently, the backend just stopped responding to requests, and after spending about 30 minutes trying to figure out what was hosed, I gave up.  We had long been intending to replace the Drupal site with something else, and this seemed like a good enough motivation to do it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Both Tremor and I have become interested in node.js, and we wanted to incorporate some webhooks, RESTful interfaces, etc.  You know&amp;#8230;&amp;#8203; The stuff all the k00lk1ds are using these days.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;What follows is a description of the development &amp;#8594; production workflow that I&amp;#8217;ve set up.  There may very well be better ways of doing this, but this was the one I ended up with, because it appeals to my sensibilities.  (Tremor probably disagrees) :)  Well, tough bananas.  I&amp;#8217;m the one actually putting the time into it. :)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The workflow relies on the following components:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Development Server from CloudAtCost&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Production Server on Linode&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ansible for automation&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Node.js &amp;amp; NPM for application&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PM2 to manage the Node.js App&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Nginx for reverse-proxy to the nodejs app&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Git &amp;amp; Gitolite for version control / repo&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;At a high level, the workflow will look like this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;olist arabic&quot;&gt;
+&lt;ol class=&quot;arabic&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;Clone or pull from the private gitolite-based repository&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Checkout dev branch.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Hack on the code.  Test.  Repeat until it&amp;#8217;s shippable.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Commit changes and push dev branch back to gitolite repo.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A githook will fire, notifying the CI machine to build/test the code.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If the tests pass, the code will automatically be promoted to the staging server at pwn9.sagely.ca by executing an ansible playbook against the development environment.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In theory, additional production-readiness testing can be done against the staging server.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Once the dev is confident that the changes are ready for production, the dev requests that a Manager promotes it to production (at the moment, that is just me.  Maybe tremor)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Promotion to production involves running an ansible playbook against the production environment.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We are going to use a similar Git model to this one: &lt;a href=&quot;http://nvie.com/posts/a-successful-git-branching-model/&quot; class=&quot;bare&quot;&gt;http://nvie.com/posts/a-successful-git-branching-model/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;dlist&quot;&gt;
+&lt;dl&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;To simplify the automated build system, we are going to use the following nomenclature&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;master&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;Release only branch.  ALL changes that go in here will be releases and automatically pushed to production. (eek!)  Nothing gets into here before rigorous testing.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;fix/&amp;lt;bugid&amp;gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;For fixes to specific bugs.  Where should we track the issues?  Trello?  These branches will be based off the &lt;code&gt;master&lt;/code&gt; branch and will be committed to &lt;code&gt;master&lt;/code&gt; as well as &lt;code&gt;develop&lt;/code&gt;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;develop&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;This branch is where all new features and updates will be merged into.  All changes pushed to the repo in one of the branches below will automatically be built and tested by Jenkins, and if the build passes will be auto-merged into this branch.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;feature/&amp;lt;featurename&amp;gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;For big features, eg: new authentication, new game API, etc.  These branches will be made off the &lt;code&gt;develop&lt;/code&gt; branch, and will be automatically be integrated when builds are pushed and passed.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;update/&amp;lt;name&amp;gt;&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;For smaller updates, eg: to page styling, layout, etc.  These branches will be made off the &lt;code&gt;develop&lt;/code&gt; branch, and will be automatically be integrated when builds are pushed and passed.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;So, if, for example, you wish to add a new feature, you would:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;CodeRay highlight&quot;&gt;&lt;code data-lang=&quot;shell&quot;&gt;$ git checkout -b feature/awesome-new-feature develop
+# This creates a new branch 'feature/awesome-new-feature' based on the 'develop' branch&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        <pubDate>Sun, 22 Jan 2017 00:00:00 -0500</pubDate>
+        <link>http://sagely.ca/2017/01/Nodejs_Ansible_Deployment_Workflow</link>
+        <guid isPermaLink="true">http://sagely.ca/2017/01/Nodejs_Ansible_Deployment_Workflow</guid>
+        
+        <category>nodejs ansible deployment pm2 pwn9 git githooks nginx</category>
         
         
         <category>coding</category>
