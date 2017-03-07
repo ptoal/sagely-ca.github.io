@@ -6,8 +6,8 @@
 </description>
     <link>http://sagely.ca/</link>
     <atom:link href="http://sagely.ca/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Mar 2017 21:49:07 -0500</pubDate>
-    <lastBuildDate>Mon, 06 Mar 2017 21:49:07 -0500</lastBuildDate>
+    <pubDate>Tue, 07 Mar 2017 14:56:08 -0500</pubDate>
+    <lastBuildDate>Tue, 07 Mar 2017 14:56:08 -0500</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -250,9 +250,11 @@ jake version               Check Node version&lt;/pre&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;We are going to use a similar Git model to this one: &lt;a href=&quot;http://nvie.com/posts/a-successful-git-branching-model/&quot; class=&quot;bare&quot;&gt;http://nvie.com/posts/a-successful-git-branching-model/&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To simplify the automated build system, we are going to use the following nomenclature:&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class=&quot;dlist&quot;&gt;
 &lt;dl&gt;
-&lt;dt class=&quot;hdlist1&quot;&gt;To simplify the automated build system, we are going to use the following nomenclature&lt;/dt&gt;
 &lt;dt class=&quot;hdlist1&quot;&gt;master&lt;/dt&gt;
 &lt;dd&gt;
 &lt;p&gt;Release only branch.  ALL changes that go in here will be releases and automatically pushed to production. (eek!)  Nothing gets into here before rigorous testing.&lt;/p&gt;
