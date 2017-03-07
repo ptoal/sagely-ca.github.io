@@ -41,17 +41,21 @@ At a high level, the workflow will look like this:
 
 We are going to use a similar Git model to this one: http://nvie.com/posts/a-successful-git-branching-model/
 
-To simplify the automated build system, we are going to use the following nomenclature::
+
+To simplify the automated build system, we are going to use the following nomenclature:
 
  master::
    Release only branch.  ALL changes that go in here will be releases and automatically pushed to production. (eek!)  Nothing gets into here before rigorous testing.
+   
  fix/<bugid>::
   For fixes to specific bugs.  Where should we track the issues?  Trello?  These branches will be based off the `master` branch and will be committed to `master` as well as `develop`
 
  develop::
    This branch is where all new features and updates will be merged into.  All changes pushed to the repo in one of the branches below will automatically be built and tested by Jenkins, and if the build passes will be auto-merged into this branch.
+
  feature/<featurename>::
    For big features, eg: new authentication, new game API, etc.  These branches will be made off the `develop` branch, and will be automatically be integrated when builds are pushed and passed.
+   
  update/<name>::
    For smaller updates, eg: to page styling, layout, etc.  These branches will be made off the `develop` branch, and will be automatically be integrated when builds are pushed and passed.
 
