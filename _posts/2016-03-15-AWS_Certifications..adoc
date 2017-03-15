@@ -1,0 +1,47 @@
+= Amazon Web Services Certifications
+:page-layout: post
+:page-categories: [ coding ]
+:page-square_related: recommend-laptop
+:page-feature_image: feature-puzzle
+:page-read_time: 5
+:page-tags: [ aws devops certification  ]
+:page-excerpt: In which I begin my journey towards my first AWS Certification.
+
+== The Saga Begins
+
+AWS.  It's big.  And scary.  And the 800 pound gorilla for the new Internet economy.
+
+For years, I have kept abreast of developments in the XaaS space.  But I never
+fully wrapped my head around what AWS was doing.  I thought they were just another
+Cloud Datacentre.  About a year ago, I started to understand that they were so much
+more.  I think https://aws.amazon.com/lambda/[Lambda] was my first real glimpse
+into how drastically things were changing.  If you've been drinking the AWS kook-aid
+longer than I have, I'm sure you saw the writing on the wall a long time ago.
+
+Since I'm in-between employers at the moment, I thought that it would be a good idea
+to get some certifications.  I had my CCNA and CCDA years ago, but let them lapse.  I
+went for the CCIE-Service Provider, but just barely missed the passing mark on the practical
+both times I took it.  I just never found that I had enough time / inclination to put into
+studying for the practical part of the lab, as I was always working on a deal, proposal,
+or whatever particular fire was going on.  So now I've got some time on my hands and it's
+extremely easy to just kick the tires on AWS, since they have a https://aws.amazon.com/free/[Free Tier] that you can use for 12 months.
+
+A former colleague of mine pointed me toward http://acloud.guru[A Cloud Guru], which has
+some *awesome* content to help you prepare for the AWS Certification tests.  I have been
+working on the Certified Solutions Architect - Associate course for about 20 - 25 hours so far
+and I'm only 36% through.  And I watch most of it at a minimum of 1.3x speed, averaging 1.5x. :)  I'm fairly confident that when I sit this exam, I'm going to do very well, with these lectures
+as background.
+
+The more time I spend working in this area, the more it feels like this is what all of my
+experience over the past 20+ years was destined for.  The combination of Servers, Software,
+Networking and Architecture is all coming together.  The irony is that it is coming together
+in a way that is going to make "server administration" obsolete.  We'll no longer manage
+full-stack systems.  Store some data here, fire off some events there, run a bit of logic
+wherever there's compute available, and string it all together server-less.  It's a bit
+  wild, to be sure, but it's also very exciting.
+
+That's enough of a break for now.  I'm off to study some more.  I was hoping to book a time
+to sit the first exam next week, but being only 36% through, I might need a bit more time. :)
+
+- Sage
+

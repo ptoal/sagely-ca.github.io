@@ -27,6 +27,7 @@ The workflow relies on the following components:
  - Nginx for reverse-proxy to the nodejs app
  - Git & Gitolite for version control / repo
 
+
 At a high level, the workflow will look like this:
 
  1. Clone or pull from the private gitolite-based repository
