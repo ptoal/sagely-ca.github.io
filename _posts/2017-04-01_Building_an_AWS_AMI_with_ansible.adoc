@@ -1,0 +1,66 @@
+= Building an AWS AMI with Ansible
+:page-layout: post
+:page-categories: [ aws ]
+:page-square_related: recommend-laptop
+:page-feature_image: feature-puzzle
+:page-read_time: 5
+:page-tags: [ aws cloud ansible automation minecraft ]
+:page-excerpt: Using Ansible to automate the base config for a custom AMI
+
+== Introduction
+
+I have spent the past couple of weeks drinking from the firehose on AWS and it's various service offerings.  I'm at the point where I need to take some of this theoretical knowledge and lab experience to build something that will actually run in production.  What better way to experiment than on pwn9.com. :)
+
+The first thing I want to do is to turn the Pwn9.com Minecraft server into an on-demand instance that is spun up and torn down based on whether or not any players are online.  The steps I need to take to do this are:
+
+ - Create an EC2 instance to be the base for the MC Server AMI
+ - Use Ansible to provision the EC2 instance with the required config
+ - Create an EBS volume to store the MC data / config
+ - Place the Pwn9 server data on the Data volume
+ - Run tests on the instance to ensure it works correctly
+ - Detach the Data volume and Create the AMI
+
+== Battle Plan
+
+I am going to start by building an Amazon AMI that I can use to create the Minecraft server instance.
+
+GOOD NEWS: I already have Ansible configurations that provide me with the base configuration that I'm already using on our live site.
+
+BAD NEWS: Amazon Linux != CentOS.  Some tweaks were necessary.  Fortunately, it only took me half an hour or so to adapt.
+
+Building the AMI consisted of running my ansible playbook against a brand new EC2 instance.  I created an instance with 2 EBS Volumes, one for the OS, and one for the game data.  The root EBS volume will be auto-destroyed when the instance is terminated, but the game data will persist.
+
+The EBS Game Data Volume led to a bit of a challenge.  There's no way in the spot request to specify an existing EBS volume to be attached to the instance.  The only option is to attach a snapshot.  So that leaves me with a couple of options:
+
+  1. When terminating each instance, create a snapshot of the extra volume, to persist the data.  Use the new snapshot on each server startup.  This doesn't feel right, because I could get out of sync if the workflow broke down.
+  2. Write a script in user-data so that the instance will auto-attach the Game Data EBS Volume.  Then, the volume can be mounted.  This will all happen before the mineos process starts.  This has the advantage of having a single EBS volume that is the source of truth for the Game Data.  The drawback is that this limits which Availability Zone the instance can be spawned in.  This shouldn't be too big an issue, though it may drive up the spot price a bit if there's higher demand in that AZ.  The quick-and-dirty script I used is below.  Long-term, I will need to refactor this into something with some error handling. :)
+```
+#!/bin/bash
+aws ec2 attach-volume --volume-id vol-0e9dba8af2b10f02e --instance-id `curl -s -o - http://169.254.169.254/latest/meta-data/instance-id/` --device xvdc --region us-east-1
+while [ ! -e /dev/xvdc ]; do sleep 1; done
+mount -a
+restart mineos
+```
+
+
+== Instance Launch / Termination
+
+The automated server workflow will be:
+
+ 1. Wait for a player to connect to mc.pwn9.com, which is a t2.micro instance running bungeecord and a tiny lobby server.
+ 2. Player requests to connect to main minecraft server by executing a /server <eg: anarchy> command.
+ 3. Bungeecord plugin (custom?) checks to see if the server is up.
+   a. If exists, connect player.
+   b. If not exists, send player a message: "Hang on, we're setting it up for you!", and fire AWS API call to initate server creation.
+ 4. Once server is ready, bungeecord informs player, and allows them to re-execute the /server <servername> command to join the newly spun up server
+ 5. Use Cloudwatch to monitor the player count.  When it reaches 0 for more than 15 minutes, terminate the Spot request.
+ 6. Goto #1. :)
+
+== TODOs
+ - Enable auto-DNS registration
+
+== Caveats
+A few of the things I discovered along the way:
+
+Cost Gotchas::
+    AWS charges $0.09 per GB of data transfer out.  If we assume that the average player uses 50kb/s of throughput while connected, it works out to about 1.62 cents per player hour. On a server with an average of 60 player months worth of connections, that works out to about $90 / mo in BW alone.  Something for larger servers to consider.
