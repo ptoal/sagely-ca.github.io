@@ -6,9 +6,162 @@
 </description>
     <link>http://sagely.ca/</link>
     <atom:link href="http://sagely.ca/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 02 Apr 2017 23:07:05 -0400</pubDate>
-    <lastBuildDate>Sun, 02 Apr 2017 23:07:05 -0400</lastBuildDate>
+    <pubDate>Sun, 02 Apr 2017 23:07:59 -0400</pubDate>
+    <lastBuildDate>Sun, 02 Apr 2017 23:07:59 -0400</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>Building an AWS AMI with Ansible</title>
+        <description>&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I have spent the past couple of weeks drinking from the firehose on AWS and it&amp;#8217;s various service offerings.  I&amp;#8217;m at the point where I need to take some of this theoretical knowledge and lab experience to build something that will actually run in production.  What better way to experiment than on pwn9.com. :)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The first thing I want to do is to turn the Pwn9.com Minecraft server into an on-demand instance that is spun up and torn down based on whether or not any players are online.  The steps I need to take to do this are:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Create an EC2 instance to be the base for the MC Server AMI&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use Ansible to provision the EC2 instance with the required config&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create an EBS volume to store the MC data / config&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Place the Pwn9 server data on the Data volume&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run tests on the instance to ensure it works correctly&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Detach the Data volume and Create the AMI&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;battle_plan&quot;&gt;Battle Plan&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I am going to start by building an Amazon AMI that I can use to create the Minecraft server instance.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;GOOD NEWS: I already have Ansible configurations that provide me with the base configuration that I&amp;#8217;m already using on our live site.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;BAD NEWS: Amazon Linux != CentOS.  Some tweaks were necessary.  Fortunately, it only took me half an hour or so to adapt.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Building the AMI consisted of running my ansible playbook against a brand new EC2 instance.  I created an instance with 2 EBS Volumes, one for the OS, and one for the game data.  The root EBS volume will be auto-destroyed when the instance is terminated, but the game data will persist.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The EBS Game Data Volume led to a bit of a challenge.  There&amp;#8217;s no way in the spot request to specify an existing EBS volume to be attached to the instance.  The only option is to attach a snapshot.  So that leaves me with a couple of options:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;olist arabic&quot;&gt;
+&lt;ol class=&quot;arabic&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;When terminating each instance, create a snapshot of the extra volume, to persist the data.  Use the new snapshot on each server startup.  This doesn&amp;#8217;t feel right, because I could get out of sync if the workflow broke down.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Write a script in user-data so that the instance will auto-attach the Game Data EBS Volume.  Then, the volume can be mounted.  This will all happen before the mineos process starts.  This has the advantage of having a single EBS volume that is the source of truth for the Game Data.  The drawback is that this limits which Availability Zone the instance can be spawned in.  This shouldn&amp;#8217;t be too big an issue, though it may drive up the spot price a bit if there&amp;#8217;s higher demand in that AZ.  The quick-and-dirty script I used is below.  Long-term, I will need to refactor this into something with some error handling. :)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;CodeRay highlight&quot;&gt;&lt;code&gt;#!/bin/bash
+aws ec2 attach-volume --volume-id vol-0e9dba8af2b10f02e --instance-id `curl -s -o - http://169.254.169.254/latest/meta-data/instance-id/` --device xvdc --region us-east-1
+while [ ! -e /dev/xvdc ]; do sleep 1; done
+mount -a
+restart mineos&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;instance_launch_termination&quot;&gt;Instance Launch / Termination&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The automated server workflow will be:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;olist arabic&quot;&gt;
+&lt;ol class=&quot;arabic&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;Wait for a player to connect to mc.pwn9.com, which is a t2.micro instance running bungeecord and a tiny lobby server.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Player requests to connect to main minecraft server by executing a /server &amp;lt;eg: anarchy&amp;gt; command.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Bungeecord plugin (custom?) checks to see if the server is up.&lt;/p&gt;
+&lt;div class=&quot;olist loweralpha&quot;&gt;
+&lt;ol class=&quot;loweralpha&quot; type=&quot;a&quot;&gt;
+&lt;li&gt;
+&lt;p&gt;If exists, connect player.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If not exists, send player a message: &quot;Hang on, we&amp;#8217;re setting it up for you!&quot;, and fire AWS API call to initate server creation.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Once server is ready, bungeecord informs player, and allows them to re-execute the /server &amp;lt;servername&amp;gt; command to join the newly spun up server&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Use Cloudwatch to monitor the player count.  When it reaches 0 for more than 15 minutes, terminate the Spot request.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Goto #1. :)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;todos&quot;&gt;TODOs&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Enable auto-DNS registration&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;caveats&quot;&gt;Caveats&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A few of the things I discovered along the way:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;dlist&quot;&gt;
+&lt;dl&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;Cost Gotchas&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;AWS charges $0.09 per GB of data transfer out.  If we assume that the average player uses 50kb/s of throughput while connected, it works out to about 1.62 cents per player hour. On a server with an average of 60 player months worth of connections, that works out to about $90 / mo in BW alone.  Something for larger servers to consider.&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        <pubDate>Sat, 01 Apr 2017 00:00:00 -0400</pubDate>
+        <link>http://sagely.ca/2017/04/Building_an_AWS_AMI_with_ansible</link>
+        <guid isPermaLink="true">http://sagely.ca/2017/04/Building_an_AWS_AMI_with_ansible</guid>
+        
+        <category>aws cloud ansible automation minecraft</category>
+        
+        
+        <category>aws</category>
+        
+      </item>
     
       <item>
         <title>Amazon Web Services Certifications</title>
